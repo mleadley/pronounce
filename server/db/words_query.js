@@ -11,6 +11,14 @@ var wordsQuery = {
     })
   },
 
+  find: function (query, callback) {
+    MongoClient.connect(this.url, function (err, db) {
+      db.collection("words").find(query).toArray(function (err, words) {
+        callback(words)
+      })
+    })
+  },
+
   save: function (wordData, callback) {
     MongoClient.connect(this.url, function (err, db) {
       db.collection("words").insert(wordData)
