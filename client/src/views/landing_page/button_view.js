@@ -1,5 +1,4 @@
 var renderSearchButton = function () {
-  console.log("ergerg")
   var searchButton = document.createElement('button')
   searchButton.id = "search-button-id"
   searchButton.type = "submit"

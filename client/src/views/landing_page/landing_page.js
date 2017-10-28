@@ -2,10 +2,9 @@ var renderSearchButton = require("./button_view.js")
 
 
 var renderTitle = function () {
-  console.log('renderTitleHit')
   var titleTag = document.createElement('h1')
   titleTag.id = "main-title"
-  titleTag.innerText = "Pronounce🔎"
+  titleTag.innerText = "Pronounce"
   titleTag.label = "main title"
   return titleTag
 }
@@ -22,22 +21,17 @@ var renderSearchBox = function () {
   return searchBox
 }
 
-
 var renderLandingPage = function () {
   var start = document.getElementById("start-chain")
-
   var titleDiv = document.createElement('div')
   start.appendChild(titleDiv.appendChild(renderTitle()))
   titleDiv.class = "landing-page"
-
   searchBoxDiv = document.createElement('div')
   start.appendChild(searchBoxDiv.appendChild(renderSearchBox()))
   searchBoxDiv.class = "landing-page"
-
   searchButtonDiv = document.createElement('div')
   start.appendChild(searchButtonDiv.appendChild(renderSearchButton()))
   searchButtonDiv.class = "landing-page"
-
 }
 
 
