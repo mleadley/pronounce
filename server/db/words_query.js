@@ -26,6 +26,15 @@ var wordsQuery = {
         callback(docs)
       })
     })
+  },
+
+  delete: function (query, callback) {
+    MongoClient.connect(this.url, function (err, db) {
+      db.collection("words").delete(query)
+      db.collection("words").find().toArray(function (err, words) {
+        callback(words)
+      })
+    })
   }
 }
 
