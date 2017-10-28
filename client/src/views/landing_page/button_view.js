@@ -18,7 +18,6 @@ var buttonSetup = function (button) {
   })
 }
 
-
 var createSearchButton = function () {
   var button = renderSearchButton()
   buttonSetup(button)

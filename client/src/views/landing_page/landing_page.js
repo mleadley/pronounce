@@ -22,11 +22,22 @@ var renderSearchBox = function () {
   return searchBox
 }
 
+
 var renderLandingPage = function () {
   var start = document.getElementById("start-chain")
-  start.appendChild(renderTitle())
-  start.appendChild(renderSearchBox())
-  start.appendChild(renderSearchButton())
+
+  var titleDiv = document.createElement('div')
+  start.appendChild(titleDiv.appendChild(renderTitle()))
+  titleDiv.class = "landing-page"
+
+  searchBoxDiv = document.createElement('div')
+  start.appendChild(searchBoxDiv.appendChild(renderSearchBox()))
+  searchBoxDiv.class = "landing-page"
+
+  searchButtonDiv = document.createElement('div')
+  start.appendChild(searchButtonDiv.appendChild(renderSearchButton()))
+  searchButtonDiv.class = "landing-page"
+
 }
 
 
