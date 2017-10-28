@@ -10,6 +10,15 @@ var wordsQuery = {
       })
     })
   },
+
+  save: function (wordData, callback) {
+    MongoClient.connect(this.url, function (err, db) {
+      db.collection("words").insert(wordData)
+      db.collection("words").find().toArray(function (err, docs) {
+        callback(docs)
+      })
+    })
+  }
 }
 
 module.exports = wordsQuery
