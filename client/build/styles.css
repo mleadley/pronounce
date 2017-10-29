@@ -1,43 +1,74 @@
-div {
-  border: black solid 1px;
-}
-
-body{
+html {
   height: 100%;
 }
 
-html{
+body {
   height: 100%;
+  margin: 0;
+  color: white;
 }
 
-#start-chain{
+input, button {
+  margin: 0;
+	border: 0;
+	padding: 0;
+	display: inline-block;
+	vertical-align: middle;
+	white-space: normal;
+	background: none;
+	line-height: 1;
+  font-family: "Lucida Grande";
+  font-weight: normal;
+}
+
+input:focus, button:focus {
+	outline:0;
+}
+
+#start-chain {
   display: flex;
   height: 100%;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  align-items: center;
-  background-color: #2F5FF5
+  background-color: #1E90FF
 }
 
-#search-box-div{
-  height: 200px;
+.landing-page {
   width: 100%;
 }
 
-#search-box{
-  /*min-height: 200px;*/
-  font-size: 46px;
+#search-box-div {
+  text-align: center;
 }
 
-#title-div-id{
-  width: 40%;
-  /*text-align: center;*/
+#search-box {
+  font-size: 30px;
+  padding: 5px;
+  color: #092b4c;
 }
 
-#main-title{
+#search-box::placeholder {
+  color: #cccccc;
+}
+
+#search-button {
+  font-size: 30px;
+  padding-top: 9px;
+  padding-left: 8px;
+  padding-right: 8px;
+  padding-bottom: 6px;
+  cursor: pointer;
+}
+
+#combo-input-button {
+  display: inline-block;
+  background-color: white;
+  border-radius: 5px;
+}
+
+#main-title {
   text-align: center;
   font-family: 'Cormorant', serif;
-  font-size: 56px;
+  font-size: 70px;
+  font-weight: 400;
   letter-spacing: 2px;
 }

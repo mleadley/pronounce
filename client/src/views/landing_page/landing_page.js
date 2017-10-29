@@ -2,7 +2,7 @@ var renderSearchButton = require("./button_view.js")
 
 
 var renderTitle = function () {
-  var titleTag = document.createElement('h1')
+  var titleTag = document.createElement("h1")
   titleTag.id = "main-title"
   titleTag.innerText = "Pronounce"
   titleTag.label = "main title"
@@ -10,36 +10,38 @@ var renderTitle = function () {
 }
 
 var renderSearchBox = function () {
-  var searchBox = document.createElement('input')
-  searchBox.type = "text"
+  var searchBox = document.createElement("input")
+  searchBox.type = "search"
   searchBox.id = "search-box"
-  searchBox.placeholder = "Seach for word"
+  searchBox.placeholder = "Search for a word"
   searchBox.required = true
-  var labelSearchBox = document.createElement('label')
+  var labelSearchBox = document.createElement("label")
   labelSearchBox.for = "search-box"
-  labelSearchBox.innerText = "Seach your word here"
+  labelSearchBox.innerText = "Search for a word"
   return searchBox
 }
 
 var renderLandingPage = function () {
   var start = document.getElementById("start-chain")
-  var titleDiv = document.createElement('div')
+  var titleDiv = document.createElement("div")
   start.appendChild(titleDiv)
   titleDiv.appendChild(renderTitle())
-  titleDiv.class = "landing-page"
-  titleDiv.id = "title-div-id"
+  titleDiv.classList.add("landing-page")
+  titleDiv.id = "title-div"
 
-  searchBoxDiv = document.createElement('div')
+  var searchBoxDiv = document.createElement("div")
+  searchBoxDiv.classList.add("landing-page")
+  searchBoxDiv.id = "search-box-div"
+
+  var comboInputButtonDiv = document.createElement("div")
+  comboInputButtonDiv.id = "combo-input-button"
+
+  comboInputButtonDiv.appendChild(renderSearchBox())
+  comboInputButtonDiv.appendChild(renderSearchButton())
+
+  searchBoxDiv.appendChild(comboInputButtonDiv)
+
   start.appendChild(searchBoxDiv)
-  searchBoxDiv.appendChild(renderSearchBox())
-  searchBoxDiv.class = "landing-page"
-  searchBoxDiv.id ="search-box-div"
-
-  searchButtonDiv = document.createElement('div')
-  start.appendChild(searchButtonDiv)
-  searchBoxDiv.appendChild(renderSearchButton())
-  // searchButtonDiv.appendChild(renderSearchButton())
-  // searchButtonDiv.class = "landing-page"
 }
 
 

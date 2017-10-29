@@ -1,14 +1,16 @@
 var renderSearchButton = function () {
-  var searchButton = document.createElement('button')
+  var searchButton = document.createElement("button")
   searchButton.id = "search-button-id"
   searchButton.type = "submit"
   return searchButton
 }
 
 var buttonSetup = function (button) {
-  var searchBox = document.getElementById('search-box')
-  button.addEventListener('click', function() {
-    if (searchBox.value.trim != "") {
+  var searchBox = document.getElementById("search-box")
+  button.id = "search-button"
+  button.innerHTML = "&#x1F50D;"
+  button.addEventListener("click", function() {
+    if (searchBox.value.trim() !== "") {
       wordSearch()
       //this function is to be finished later because kyle is lazy and didnt want to write a search function just yet
     } else {
