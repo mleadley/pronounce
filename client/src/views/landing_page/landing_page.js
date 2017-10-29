@@ -37,8 +37,9 @@ var renderLandingPage = function () {
 
   searchButtonDiv = document.createElement('div')
   start.appendChild(searchButtonDiv)
-  searchButtonDiv.appendChild(renderSearchButton())
-  searchButtonDiv.class = "landing-page"
+  searchBoxDiv.appendChild(renderSearchButton())
+  // searchButtonDiv.appendChild(renderSearchButton())
+  // searchButtonDiv.class = "landing-page"
 }
 
 
