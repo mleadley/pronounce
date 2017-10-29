@@ -6,6 +6,7 @@ body {
   height: 100%;
   margin: 0;
   color: white;
+  background-color: #1E90FF;
 }
 
 input, button {
@@ -29,7 +30,7 @@ input:focus, button:focus {
   display: flex;
   height: 100%;
   flex-direction: column;
-  background-color: #1E90FF
+  justify-content: center;
 }
 
 .landing-page {
@@ -37,26 +38,32 @@ input:focus, button:focus {
 }
 
 #search-box-div {
+  padding: 70px 0 120px 0;
   text-align: center;
 }
 
 #search-box {
   font-size: 30px;
-  padding: 5px;
+  padding: 8px;
   color: #092b4c;
 }
 
 #search-box::placeholder {
-  color: #cccccc;
+  color: #ccc;
 }
 
 #search-button {
   font-size: 30px;
-  padding-top: 9px;
-  padding-left: 8px;
-  padding-right: 8px;
-  padding-bottom: 6px;
+  padding-top: 12px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 9px;
   cursor: pointer;
+}
+
+#search-button:hover {
+  background-color: #e8f3ff;
+  border-radius: 0 5px 5px 0;
 }
 
 #combo-input-button {
@@ -66,6 +73,7 @@ input:focus, button:focus {
 }
 
 #main-title {
+  margin: 0;
   text-align: center;
   font-family: 'Cormorant', serif;
   font-size: 70px;
