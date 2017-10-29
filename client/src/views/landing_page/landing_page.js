@@ -11,7 +11,7 @@ var renderTitle = function () {
 
 var renderSearchBox = function () {
   var searchBox = document.createElement('input')
-  searchBox.type = "search"
+  searchBox.type = "text"
   searchBox.id = "search-box"
   searchBox.placeholder = "Seach for word"
   searchBox.required = true
@@ -24,13 +24,20 @@ var renderSearchBox = function () {
 var renderLandingPage = function () {
   var start = document.getElementById("start-chain")
   var titleDiv = document.createElement('div')
-  start.appendChild(titleDiv.appendChild(renderTitle()))
+  start.appendChild(titleDiv)
+  titleDiv.appendChild(renderTitle())
   titleDiv.class = "landing-page"
+  titleDiv.id = "title-div-id"
+
   searchBoxDiv = document.createElement('div')
-  start.appendChild(searchBoxDiv.appendChild(renderSearchBox()))
+  start.appendChild(searchBoxDiv)
+  searchBoxDiv.appendChild(renderSearchBox())
   searchBoxDiv.class = "landing-page"
+  searchBoxDiv.id ="search-box-div"
+
   searchButtonDiv = document.createElement('div')
-  start.appendChild(searchButtonDiv.appendChild(renderSearchButton()))
+  start.appendChild(searchButtonDiv)
+  searchButtonDiv.appendChild(renderSearchButton())
   searchButtonDiv.class = "landing-page"
 }
 
