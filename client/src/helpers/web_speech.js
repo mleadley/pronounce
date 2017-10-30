@@ -1,4 +1,4 @@
-var webkitSpeechRecognition = webkitSpeechRecognition || null
+// var webkitSpeechRecognition = webkitSpeechRecognition || null
 var SpeechRecognition = SpeechRecognition || webkitSpeechRecognition
 
 if (SpeechRecognition) {
@@ -8,17 +8,16 @@ if (SpeechRecognition) {
   recognition.interimResults = false;
   recognition.maxAlternatives = 1;
 
-  var diagnostic = document.querySelector('.output');
-  var conf = document.querySelector('.confidence');
+  var diagnostic = document.querySelector('#score-visualisation');
 
   recognition.onresult = function(event) {
     var last = event.results.length - 1;
-    var word = event.results[last][0].transcript;
+    var recognisedWord = event.results[last][0].transcript;
 
-    // diagnostic.textContent = 'Result received: ' + word
-    // conf.textContent = "Confidence: " + event.results[0][0].confidence;
+    diagnostic.innerHTML = 'Result received: ' + recognisedWord + "\n" +
+                           "Confidence: " + event.results[0][0].confidence;
 
-    console.log('Result received: ' + word)
+    console.log('Result received: ' + recognisedWord)
     console.log('Confidence: ' + event.results[0][0].confidence);
   }
 
