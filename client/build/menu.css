@@ -1,0 +1,46 @@
+.side-menu{
+  color: black;
+  font-family: "Lucida Grande";
+
+}
+
+.side-menu-li{
+  font-size: 24px;
+  /*border: 1px black solid;*/
+  text-align: left;
+  display: block;
+  margin-left: -40px;
+  margin-right: -4px;
+  padding-top: 20px;
+  padding-left: 7px;
+  font-weight: 100;
+
+}
+
+.side-menu-li:hover{
+  background-color: #d2e8ff;
+  color: black;
+}
+
+
+#side-menu-ul{
+  font-size: 36px;
+  margin-top: 0px;
+  padding-right: 4px;
+  list-style: none;
+  text-align: right;
+  border: 1px black solid;
+  white-space:nowrap;
+}
+
+
+#nav-menu{
+  background-color: #F9F9F9;
+  border-radius: 5px;
+  position: absolute;
+  top: 12px;
+  left: 15px;
+  width: 240px;
+  height: 600px;
+  border: 1px black solid;
+}

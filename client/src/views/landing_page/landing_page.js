@@ -1,6 +1,6 @@
 // var request = require("../../request_helpers/request_helper.js")
 var renderSearchButton = require("./button_view.js")
-
+var side_menu = require("../side_menu/side_menu.js")
 
 var renderTitle = function () {
   var titleTag = document.createElement("h1")
@@ -45,6 +45,7 @@ var renderLandingPage = function () {
   searchBoxDiv.appendChild(comboInputButtonDiv)
 
   start.appendChild(searchBoxDiv)
+  start.appendChild(side_menu())
 }
 
 
