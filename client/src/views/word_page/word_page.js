@@ -15,7 +15,7 @@ var renderPhoneticField = function (currentWord) {
 var phoneticField = document.createElement("h3")
 phoneticField.id = "phonetic-field"
 phoneticField.innerText = currentWord
-phoneticField.label = "phonetic filed"
+phoneticField.label = "phonetic field"
 return phoneticField
 }
 
