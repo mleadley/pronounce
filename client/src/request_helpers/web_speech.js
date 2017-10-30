@@ -3,13 +3,13 @@ var recognition = new SpeechRecognition();
 
 recognition.lang = 'en-UK';
 recognition.interimResults = false;
-recognition.maxAlternatives = 10;
+recognition.maxAlternatives = 1;
 
 var diagnostic = document.querySelector('.output');
 var conf = document.querySelector('.confidence');
-var bg = document.querySelector('html');
+var button = document.querySelector('#train-button');
 
-document.body.onclick = function() {
+button.onclick = function() {
   recognition.start();
   console.log('Ready to receive a word command.');
 }
