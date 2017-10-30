@@ -1,38 +1,38 @@
+var webkitSpeechRecognition = webkitSpeechRecognition || null
 var SpeechRecognition = SpeechRecognition || webkitSpeechRecognition
-var recognition = new SpeechRecognition();
 
-recognition.lang = 'en-UK';
-recognition.interimResults = false;
-recognition.maxAlternatives = 1;
+if (SpeechRecognition) {
+  var recognition = new SpeechRecognition();
 
-var diagnostic = document.querySelector('.output');
-var conf = document.querySelector('.confidence');
-var button = document.querySelector('#train-button');
+  recognition.lang = 'en-UK';
+  recognition.interimResults = false;
+  recognition.maxAlternatives = 1;
 
-button.onclick = function() {
-  recognition.start();
-  console.log('Ready to receive a word command.');
-}
+  var diagnostic = document.querySelector('.output');
+  var conf = document.querySelector('.confidence');
 
-recognition.onresult = function(event) {
+  recognition.onresult = function(event) {
+    var last = event.results.length - 1;
+    var word = event.results[last][0].transcript;
 
-  var last = event.results.length - 1;
-  var word = event.results[last][0].transcript;
+    // diagnostic.textContent = 'Result received: ' + word
+    // conf.textContent = "Confidence: " + event.results[0][0].confidence;
 
-  diagnostic.textContent = 'Result received: ' + word
-  conf.textContent = "Confidence: " + event.results[0][0].confidence;
+    console.log('Result received: ' + word)
+    console.log('Confidence: ' + event.results[0][0].confidence);
+  }
 
-  console.log('Confidence: ' + event.results[0][0].confidence);
-}
+  recognition.onspeechend = function() {
+    recognition.stop();
+  }
 
-recognition.onspeechend = function() {
-  recognition.stop();
-}
+  recognition.onnomatch = function(event) {
+    console.log("I didn't recognise that word.");
+  }
 
-recognition.onnomatch = function(event) {
-  console.log("I didn't recognise that word.");
-}
+  recognition.onerror = function(event) {
+    console.log('Error occurred in recognition: ' + event.error);
+  }
 
-recognition.onerror = function(event) {
-  console.log('Error occurred in recognition: ' + event.error);
+  module.exports = recognition
 }
