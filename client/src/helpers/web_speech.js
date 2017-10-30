@@ -30,9 +30,9 @@ recognition.onspeechend = function() {
 }
 
 recognition.onnomatch = function(event) {
-  diagnostic.textContent = "I didn't recognise that word.";
+  console.log("I didn't recognise that word.");
 }
 
 recognition.onerror = function(event) {
-  diagnostic.textContent = 'Error occurred in recognition: ' + event.error;
+  console.log('Error occurred in recognition: ' + event.error);
 }
