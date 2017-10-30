@@ -1,3 +1,4 @@
+var request = require('../../request_helpers/request_helper.js')
 var renderSearchButton = require("./button_view.js")
 
 
