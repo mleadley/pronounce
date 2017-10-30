@@ -1,6 +1,19 @@
 // var request = require("../../request_helpers/request_helper.js")
 var renderSearchButton = require("./button_view.js")
+var renderWordPage = require("../word_page/word_page.js")
 
+var clearStartChain = function () {
+  var startChain = document.getElementById("start-chain")
+  while (startChain.firstChild) {
+    startChain.removeChild(startChain.firstChild)
+  }
+}
+
+var onSearch = function (event) {
+  var chosenWord = event.target[0].value
+  clearStartChain()
+  renderWordPage(chosenWord)
+}
 
 var renderTitle = function () {
   var titleTag = document.createElement("h1")
@@ -39,8 +52,18 @@ var renderLandingPage = function () {
   var comboInputButtonDiv = document.createElement("div")
   comboInputButtonDiv.id = "combo-input-button"
 
-  comboInputButtonDiv.appendChild(renderSearchBox())
-  comboInputButtonDiv.appendChild(renderSearchButton())
+  var searchForm = document.createElement("form")
+  searchForm.id = "search-form"
+
+  var searchBox = renderSearchBox()
+  var searchButton = renderSearchButton()
+
+  searchForm.addEventListener("submit", onSearch)
+
+  searchForm.appendChild(searchBox)
+  searchForm.appendChild(searchButton)
+
+  comboInputButtonDiv.appendChild(searchForm)
 
   searchBoxDiv.appendChild(comboInputButtonDiv)
 
