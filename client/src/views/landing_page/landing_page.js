@@ -1,4 +1,4 @@
-var request = require('../../request_helpers/request_helper.js')
+// var request = require("../../request_helpers/request_helper.js")
 var renderSearchButton = require("./button_view.js")
 
 
@@ -16,6 +16,8 @@ var renderSearchBox = function () {
   searchBox.id = "search-box"
   searchBox.placeholder = "Search for a word"
   searchBox.required = true
+  searchBox.autofocus = true
+  searchBox.autocomplete = true
   var labelSearchBox = document.createElement("label")
   labelSearchBox.for = "search-box"
   labelSearchBox.innerText = "Search for a word"
