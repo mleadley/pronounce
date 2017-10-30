@@ -1,13 +1,6 @@
-// var request = require("../../request_helpers/request_helper.js")
 var renderSearchButton = require("./button_view.js")
 var renderWordPage = require("../word_page/word_page.js")
-
-var clearStartChain = function () {
-  var startChain = document.getElementById("start-chain")
-  while (startChain.firstChild) {
-    startChain.removeChild(startChain.firstChild)
-  }
-}
+var clearStartChain = require("../../helpers/clear_start_chain.js")
 
 var onSearch = function (event) {
   var chosenWord = event.target[0].value
