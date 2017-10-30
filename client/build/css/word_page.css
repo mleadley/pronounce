@@ -1,0 +1,113 @@
+html {
+  height: 100%;
+}
+
+body {
+  height: 100%;
+  margin: 0;
+  color: white;
+  background-color: #1E90FF;
+}
+
+button {
+  margin: 0;
+	border: 0;
+	padding: 0;
+	display: inline-block;
+	vertical-align: middle;
+	white-space: normal;
+	background: none;
+	line-height: 1;
+  font-family: "Lucida Grande";
+  font-weight: normal;
+}
+
+button:focus {
+	outline:0;
+}
+button:hover {
+  background-color: #e8f3ff;
+  border-radius: 0 5px 5px 0;
+}
+
+.word-page {
+  width: 100%;
+  background-color: white;
+}
+
+#word-info-button-div{
+  margin: 50px 0 0 0;
+}
+
+#word-info-button {
+  font-size: 30px;
+  /*display: inline-block;
+  background-color: white;
+  border-radius: 5px;*/
+}
+
+#word-title-div {
+  margin: 10px 0 100px 0;
+  text-align: center;
+}
+
+#word-title {
+  margin: 15px 0 40px 0;
+  font-size: 30px;
+  padding: 8px;
+  color: #092b4c;
+}
+
+#word-phonetic-div {
+  /*margin: 70px 0 120px 0;*/
+  text-align: center;
+}
+
+#phonetic-field {
+  font-size: 30px;
+  padding: 8px;
+  color: #092b4c;
+}
+
+#sound-button-div {
+  /*margin: 70px 0 120px 0;*/
+  text-align: center;
+}
+
+
+
+#train-button-div {
+  /*margin: 30px 0 120px 0;*/
+  text-align: center;
+}
+
+#train-button {
+  font-size: 30px;
+  padding: 8px;
+  color: #092b4c;
+}
+#word-sound-button-div {
+  margin: 40px 0 20px 0;
+  text-align: center;
+}
+
+#sound-button {
+  color: #092b4c;
+  font-size: 30px;
+  padding-top: 12px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 9px;
+  cursor: pointer;
+}
+
+
+
+#sound-button {
+  font-size: 30px;
+  padding-top: 12px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 9px;
+  cursor: pointer;
+}

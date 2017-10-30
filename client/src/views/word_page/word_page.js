@@ -27,10 +27,6 @@ scoreVisualisation.label = "score visualisation"
 return scoreVisualisation
 }
 
-
-
-
-
 var renderWordPage = function(currentWord){
   var start = document.getElementById("start-chain")
   var wordTitle = document.createElement("div")
@@ -38,18 +34,8 @@ var renderWordPage = function(currentWord){
   wordTitle.appendChild(renderWordTitle(currentWord))
   wordTitle.classList.add("word-page")
   wordTitle.id = "word-title-div"
-
-  var phoneticField = document.createElement("div")
-  phoneticField.classList.add("word-page")
-  phoneticField.id = "word-phonetic-div"
-  phoneticField.appendChild(renderPhoneticField(currentWord))
-  wordTitle.appendChild(phoneticField)
-
-  var wordInfoButton = document.createElement("div")
-  wordInfoButton.classList.add("word-page")
-  wordInfoButton.id = "word-info-button-div"
-  wordInfoButton.appendChild(renderWordInfoButton())
-  wordTitle.appendChild(wordInfoButton)
+  wordTitle.appendChild(renderPhoneticField(currentWord))
+  wordTitle.appendChild(renderWordInfoButton())
 
 
 
@@ -60,6 +46,13 @@ var renderWordPage = function(currentWord){
   start.appendChild(wordSoundButton)
 
 
+  var scoreVisualisation = document.createElement("div")
+  scoreVisualisation.classList.add("word-page")
+  scoreVisualisation.id = "score-visualisation-div"
+  scoreVisualisation.appendChild(renderScoreVisualisation())
+  start.appendChild(scoreVisualisation)
+
+
   var trainButton = document.createElement("div")
   trainButton.classList.add("word-page")
   trainButton.id = "train-button-div"
@@ -67,11 +60,7 @@ var renderWordPage = function(currentWord){
   start.appendChild(trainButton)
 
 
-  var scoreVisualisation = document.createElement("div")
-  scoreVisualisation.classList.add("word-page")
-  scoreVisualisation.id = "score-visualisation-div"
-  scoreVisualisation.appendChild(renderScoreVisualisation())
-  start.appendChild(scoreVisualisation)
+
 
 
 
