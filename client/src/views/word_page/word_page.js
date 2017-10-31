@@ -65,7 +65,7 @@ var renderWordPage = function (currentWord, phonetic) {
   var trainButton = document.createElement("div")
   trainButton.classList.add("word-page")
   trainButton.id = "train-button-div"
-  trainButton.appendChild(renderTrainButton())
+  trainButton.appendChild(renderTrainButton(currentWord))
   start.appendChild(trainButton)
 }
 
