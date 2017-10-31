@@ -1,0 +1,82 @@
+html {
+  height: 100%;
+}
+
+body {
+  height: 100%;
+  margin: 0;
+  color: white;
+  background-color: #1E90FF;
+}
+
+input, button {
+  margin: 0;
+	border: 0;
+	padding: 0;
+	display: inline-block;
+	vertical-align: middle;
+	white-space: normal;
+	background: none;
+	line-height: 1;
+  font-family: "Lucida Grande";
+  font-weight: normal;
+}
+
+input:focus, button:focus {
+	outline:0;
+}
+
+#start-chain {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.landing-page {
+  width: 100%;
+}
+
+#search-box-div {
+  padding: 70px 0 120px 0;
+  text-align: center;
+}
+
+#search-box {
+  font-size: 30px;
+  padding: 8px;
+  color: #092b4c;
+}
+
+#search-box::placeholder {
+  color: #ccc;
+}
+
+#search-button {
+  font-size: 30px;
+  padding-top: 12px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 9px;
+  cursor: pointer;
+}
+
+#search-button:hover {
+  background-color: #e8f3ff;
+  border-radius: 0 5px 5px 0;
+}
+
+#combo-input-button {
+  display: inline-block;
+  background-color: white;
+  border-radius: 5px;
+}
+
+#main-title {
+  margin: 0;
+  text-align: center;
+  font-family: 'Cormorant', serif;
+  font-size: 70px;
+  font-weight: 400;
+  letter-spacing: 2px;
+}
