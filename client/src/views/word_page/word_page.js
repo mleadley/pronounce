@@ -1,3 +1,5 @@
+var requestHelper = require("../../helpers/request_helper.js")
+var playWebAudio = require("../../helpers/web_audio.js")
 var renderTrainButton = require("./trainButton-view.js")
 var renderWordInfoButton = require("./infoButton-view.js")
 var renderSoundButton = require("./soundButton-view.js")
@@ -27,12 +29,9 @@ scoreVisualisation.label = "score visualisation"
 return scoreVisualisation
 }
 
-
-
-
-
-var renderWordPage = function(currentWord){
+var renderWordPage = function (currentWord, phonetic) {
   var start = document.getElementById("start-chain")
+
   var wordTitle = document.createElement("div")
   start.appendChild(wordTitle)
   wordTitle.appendChild(renderWordTitle(currentWord))
@@ -42,7 +41,7 @@ var renderWordPage = function(currentWord){
   var phoneticField = document.createElement("div")
   phoneticField.classList.add("word-page")
   phoneticField.id = "word-phonetic-div"
-  phoneticField.appendChild(renderPhoneticField(currentWord))
+  phoneticField.appendChild(renderPhoneticField(phonetic))
   wordTitle.appendChild(phoneticField)
 
   var wordInfoButton = document.createElement("div")
@@ -51,21 +50,11 @@ var renderWordPage = function(currentWord){
   wordInfoButton.appendChild(renderWordInfoButton())
   wordTitle.appendChild(wordInfoButton)
 
-
-
   var wordSoundButton = document.createElement("div")
   wordSoundButton.classList.add("word-page")
   wordSoundButton.id = "word-sound-button-div"
   wordSoundButton.appendChild(renderSoundButton())
   start.appendChild(wordSoundButton)
-
-
-  var trainButton = document.createElement("div")
-  trainButton.classList.add("word-page")
-  trainButton.id = "train-button-div"
-  trainButton.appendChild(renderTrainButton())
-  start.appendChild(trainButton)
-
 
   var scoreVisualisation = document.createElement("div")
   scoreVisualisation.classList.add("word-page")
@@ -73,8 +62,27 @@ var renderWordPage = function(currentWord){
   scoreVisualisation.appendChild(renderScoreVisualisation())
   start.appendChild(scoreVisualisation)
 
-
-
+  var trainButton = document.createElement("div")
+  trainButton.classList.add("word-page")
+  trainButton.id = "train-button-div"
+  trainButton.appendChild(renderTrainButton())
+  start.appendChild(trainButton)
 }
 
-module.exports = renderWordPage
+var makeDictionaryRequest = function (currentWord) {
+  var url = "http://localhost:3000/api/oed/" + currentWord
+  requestHelper.get(url, function (oedData) {
+    console.log(oedData);
+
+    var audioFileURL =
+      oedData.results[0].lexicalEntries[0].pronunciations[0].audioFile
+    playWebAudio(audioFileURL)
+
+    var phonetic =
+      oedData.results[0].lexicalEntries[0].pronunciations[0].phoneticSpelling
+
+    renderWordPage(currentWord, phonetic)
+  })
+}
+
+module.exports = makeDictionaryRequest
