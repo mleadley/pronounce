@@ -5,14 +5,13 @@ var renderWordInfoButton = function () {
   wordInfoButton.id = "word-info-button"
   wordInfoButton.type = "button"
   wordInfoButton.innerText = "Info"
+  var infoContainer = document.querySelector('.hidden')
   wordInfoButton.addEventListener("click", function(){
-    var toggleMenu
-    if(toggleMenu === true) {
-      renderInfoPane.close
+    if(infoContainer.classList.contains("hidden")){
+      infoContainer.classList.remove("hidden")
     } else {
-      renderInfoPane.open
+      infoContainer.classList.add("hidden")
     }
-    toggleMenu = true
   })
   return wordInfoButton
 }
