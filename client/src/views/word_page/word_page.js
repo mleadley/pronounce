@@ -3,6 +3,8 @@ var playWebAudio = require("../../helpers/web_audio.js")
 var renderTrainButton = require("./trainButton-view.js")
 var renderWordInfoButton = require("./infoButton-view.js")
 var renderSoundButton = require("./soundButton-view.js")
+var handleInfoPane = require('./info_pane.js')
+
 
 var renderWordTitle = function (currentWord) {
 var wordTitle = document.createElement("h1")
@@ -73,7 +75,7 @@ var makeDictionaryRequest = function (currentWord) {
   var url = "http://localhost:3000/api/oed/" + currentWord
   requestHelper.get(url, function (oedData) {
     console.log(oedData);
-
+    handleInfoPane.render(oedData)
     var audioFileURL
     var phonetic
 
@@ -84,6 +86,7 @@ var makeDictionaryRequest = function (currentWord) {
     }
 
     playWebAudio(audioFileURL)
+
 
     renderWordPage(currentWord, phonetic)
   })
