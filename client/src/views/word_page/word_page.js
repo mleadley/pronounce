@@ -1,5 +1,5 @@
 var requestHelper = require("../../helpers/request_helper.js")
-var playWebAudio = require("../../helpers/web_audio.js")
+var getAudioPlayer = require("../../helpers/web_audio.js")
 var renderTrainButton = require("./trainButton-view.js")
 var renderWordInfoButton = require("./infoButton-view.js")
 var renderSoundButton = require("./soundButton-view.js")
@@ -31,7 +31,7 @@ scoreVisualisation.label = "score visualisation"
 return scoreVisualisation
 }
 
-var renderWordPage = function (currentWord, phonetic) {
+var renderWordPage = function (currentWord, phonetic, playAudio) {
   var start = document.getElementById("start-chain")
 
   var wordTitle = document.createElement("div")
@@ -55,7 +55,7 @@ var renderWordPage = function (currentWord, phonetic) {
   var wordSoundButton = document.createElement("div")
   wordSoundButton.classList.add("word-page")
   wordSoundButton.id = "word-sound-button-div"
-  wordSoundButton.appendChild(renderSoundButton())
+  wordSoundButton.appendChild(renderSoundButton(playAudio))
   start.appendChild(wordSoundButton)
 
   var scoreVisualisation = document.createElement("div")
@@ -85,10 +85,9 @@ var makeDictionaryRequest = function (currentWord) {
       phonetic = pronunciation.phoneticSpelling
     }
 
-    playWebAudio(audioFileURL)
+    playAudio = getAudioPlayer(audioFileURL)
 
-
-    renderWordPage(currentWord, phonetic)
+    renderWordPage(currentWord, phonetic, playAudio)
   })
 }
 
