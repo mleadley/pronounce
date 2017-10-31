@@ -74,12 +74,16 @@ var makeDictionaryRequest = function (currentWord) {
   requestHelper.get(url, function (oedData) {
     console.log(oedData);
 
-    var audioFileURL =
-      oedData.results[0].lexicalEntries[0].pronunciations[0].audioFile
-    playWebAudio(audioFileURL)
+    var audioFileURL
+    var phonetic
 
-    var phonetic =
-      oedData.results[0].lexicalEntries[0].pronunciations[0].phoneticSpelling
+    for(pronunciation of oedData.results[0].lexicalEntries[0].pronunciations) {
+      if (audioFileURL) break
+      audioFileURL = pronunciation.audioFile
+      phonetic = pronunciation.phoneticSpelling
+    }
+
+    playWebAudio(audioFileURL)
 
     renderWordPage(currentWord, phonetic)
   })
