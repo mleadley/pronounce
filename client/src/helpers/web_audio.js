@@ -1,13 +1,11 @@
 var requestHelper = require("./request_helper.js")
 
-var playWebAudio = function (url) {
+var getAudioPlayer = function (url) {
   var audioCtx = new (window.AudioContext || window.webkitAudioContext)()
-  var audioBufferSource = audioCtx.createBufferSource()
+  var mainAudioBuffer
 
   var handleAudio = function (audioBuffer) {
-    audioBufferSource.buffer = audioBuffer
-    audioBufferSource.connect(audioCtx.destination)
-    audioBufferSource.start()
+    mainAudioBuffer = audioBuffer
   }
 
   var decodeMP3 = function (arrayBuffer) {
@@ -15,6 +13,13 @@ var playWebAudio = function (url) {
   }
 
   requestHelper.getAudio(url, decodeMP3)
+
+  return function () {
+    var audioBufferSource = audioCtx.createBufferSource()
+    audioBufferSource.buffer = mainAudioBuffer
+    audioBufferSource.connect(audioCtx.destination)
+    audioBufferSource.start()
+  }
 }
 
-module.exports = playWebAudio
+module.exports = getAudioPlayer
