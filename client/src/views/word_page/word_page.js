@@ -31,6 +31,7 @@ return scoreVisualisation
 
 var renderWordPage = function (currentWord, phonetic) {
   var start = document.getElementById("start-chain")
+
   var wordTitle = document.createElement("div")
   start.appendChild(wordTitle)
   wordTitle.appendChild(renderWordTitle(currentWord))
@@ -55,19 +56,17 @@ var renderWordPage = function (currentWord, phonetic) {
   wordSoundButton.appendChild(renderSoundButton())
   start.appendChild(wordSoundButton)
 
+  var scoreVisualisation = document.createElement("div")
+  scoreVisualisation.classList.add("word-page")
+  scoreVisualisation.id = "score-visualisation-div"
+  scoreVisualisation.appendChild(renderScoreVisualisation())
+  start.appendChild(scoreVisualisation)
 
   var trainButton = document.createElement("div")
   trainButton.classList.add("word-page")
   trainButton.id = "train-button-div"
   trainButton.appendChild(renderTrainButton())
   start.appendChild(trainButton)
-
-
-  var scoreVisualisation = document.createElement("div")
-  scoreVisualisation.classList.add("word-page")
-  scoreVisualisation.id = "score-visualisation-div"
-  scoreVisualisation.appendChild(renderScoreVisualisation())
-  start.appendChild(scoreVisualisation)
 }
 
 var makeDictionaryRequest = function (currentWord) {
