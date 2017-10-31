@@ -1,6 +1,6 @@
 var requestHelper = {}
 
-requestHelper.get = function (url, onRequestComplete, key) {
+requestHelper.get = function (url, onRequestComplete) {
   var xhr = new XMLHttpRequest()
   xhr.open('GET', url)
   xhr.addEventListener('load', function () {
