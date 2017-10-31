@@ -3,9 +3,6 @@ var requestHelper = {}
 requestHelper.get = function (url, onRequestComplete, key) {
   var xhr = new XMLHttpRequest()
   xhr.open('GET', url)
-  xhr.setRequestHeader("app_id", "7a01cc33")
-  xhr.setRequestHeader("app_key", key)
-
   xhr.addEventListener('load', function () {
     if (xhr.status !== 200) {
       console.error('GET request status was not 200, it was:', xhr.status)
