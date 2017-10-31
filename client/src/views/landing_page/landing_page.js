@@ -1,5 +1,4 @@
 var renderSearchButton = require("./button_view.js")
-var side_menu = require("../side_menu/side_menu.js")
 var renderWordPage = require("../word_page/word_page.js")
 var clearStartChain = require("../../helpers/clear_start_chain.js")
 
@@ -62,7 +61,6 @@ var renderLandingPage = function () {
   searchBoxDiv.appendChild(comboInputButtonDiv)
 
   start.appendChild(searchBoxDiv)
-  start.appendChild(side_menu())
 }
 
 
