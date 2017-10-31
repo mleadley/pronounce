@@ -14,9 +14,7 @@ var playWebAudio = function (url) {
     audioCtx.decodeAudioData(arrayBuffer, handleAudio)
   }
 
-  requestHelper.get(url, function () {
-    decodeMP3(xhr.response)
-  })
+  requestHelper.getAudio(url, decodeMP3)
 }
 
 module.exports = playWebAudio
