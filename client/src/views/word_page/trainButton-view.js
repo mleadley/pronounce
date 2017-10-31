@@ -6,7 +6,8 @@ var renderTrainButton = function (currentWord) {
 
   recognition.onresult = function(event) {
     var last = event.results.length - 1;
-    var recognisedWord = event.results[last][0].transcript;
+    var recognisedWord = event.results[last][0].transcript.toLowerCase();
+    currentWord = currentWord.toLowerCase();
 
     var wordMatch = currentWord === recognisedWord
 
