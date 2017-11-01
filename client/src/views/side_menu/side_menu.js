@@ -1,6 +1,5 @@
 var requestHelper = require("../../helpers/request_helper")
 
-
 var renderSideMenu = function (wordsArray) {
   var nav = document.querySelector("nav#side-menu")
   var completedList = nav.querySelector("#completed ul")
