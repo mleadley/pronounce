@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pronounce</title>
     <link href="https://fonts.googleapis.com/css?family=Cormorant" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
     <link rel="stylesheet" href="/css/common.css">
     <link rel="stylesheet" href="/css/hamburger.css">
     <link rel="stylesheet" href="/css/landing_page.css">
@@ -13,13 +14,29 @@
     <script src="bundle.js" charset="utf-8"></script>
   </head>
   <body>
+    <button class="hamburger hamburger--3dxy" type="button">
+      <span class="hamburger-box">
+        <span class="hamburger-inner"></span>
+      </span>
+    </button>
+
     <nav id="side-menu">
-      <button class="hamburger hamburger--3dxy" type="button">
-        <span class="hamburger-box">
-          <span class="hamburger-inner"></span>
-        </span>
-      </button>
-      <br><br><br><br><br><br>
+      <a href="" id="new-search">New search</a>
+      <details id="completed">
+        <summary>Completed</summary>
+        <ul>
+        </ul>
+      </details>
+      <details id="needs-work">
+        <summary>Needs work</summary>
+        <ul>
+        </ul>
+      </details>
+      <details id="failed">
+        <summary>Failed</summary>
+        <ul>
+        </ul>
+      </details>
       <details>
         <summary>Settings</summary>
         <select id="difficulty-options">
