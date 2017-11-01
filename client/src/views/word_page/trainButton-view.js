@@ -1,4 +1,5 @@
 var startRecognition = require("../../helpers/web_speech.js")
+var requestHelper = require("../../helpers/request_helper.js")
 
 var renderTrainButton = function (currentWord) {
   var recognition = startRecognition()
@@ -42,8 +43,20 @@ var renderTrainButton = function (currentWord) {
 
     if ((conf > diffLevel) && (wordMatch)) {
       diagnostic.style["background-color"] = "green"
+
+      var wordToSave = {word : currentWord, completed: true}
+      requestHelper.post("http://localhost:3000/api/words/" + currentWord, wordToSave, function(data){
+        console.log("heres some data" + data)
+        console.log(currentWord + " added to completed words")
+      })
+
+
       move();
     } else {
+
+      requestHelper.post("http://localhost:3000/api/words/" + currentWord, {word: currentWord, completed: false}, function(data){
+        console.log(currentWord + "added to failed words")
+      })
       diagnostic.style.width = 100 + '%'
       diagnostic.style["background-color"] = "red"
       diagnostic.textContent = "TRY AGAIN"
