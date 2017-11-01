@@ -5,12 +5,10 @@ var handleDifficultySelector = {}
 
 
 handleDifficultySelector.handleChange = function (){
+  var selectorValue = "2"
   var selector = document.getElementById("difficulty-options")
   selector.addEventListener("change", function(){
-    var selectorValue = selector.value
-    if (selectorValue === null) {
-      selectorValue = "2"
-    }
+    selectorValue = selector.value
     console.log(selectorValue + "null")
     localStorage.setItem("difficultyValue", selectorValue)
   })
