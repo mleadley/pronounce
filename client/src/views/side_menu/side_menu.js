@@ -21,9 +21,11 @@ var renderSideMenu = function (wordsArray) {
 
   hamburgerButton.addEventListener("click", function () {
     if(yourWords.classList.contains("hidden")){
+      nav.classList.add("open")
       hamburgerButton.classList.add("is-active")
       yourWords.classList.remove("hidden")
     } else {
+      nav.classList.remove("open")
       hamburgerButton.classList.remove("is-active")
       yourWords.classList.add("hidden")
     }

@@ -3,17 +3,29 @@
   top: 0;
   left: 0;
 
-  color: black;
-  font-family: "Lucida Grande";
+  height: 100%;
+  width: 0;
+  /*font-family: "Lucida Grande";*/
+
+  transition-property: background-color, box-shadow;
+  transition-duration: 0.15s;
+  transition-timing-function: ease;
+}
+
+#side-menu.open {
+  width: 350px;
+  background-color: #e8f3ff;
+  box-shadow: 0 0 10px black;
 }
 
 #side-menu ul {
   font-size: 36px;
+  color: dodgerblue;
+
   margin: 0;
-  padding: 0;
+  padding: 60px 0 0 0;
   list-style: none;
   text-align: right;
-  background-color: #F9F9F9;
   /*white-space:nowrap;*/
 }
 
@@ -28,5 +40,4 @@
 
 #side-menu li:hover {
   background-color: #d2e8ff;
-  color: black;
 }
