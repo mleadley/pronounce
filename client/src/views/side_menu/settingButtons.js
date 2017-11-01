@@ -15,7 +15,6 @@ handleDifficultySelector.handleChange = function (){
 
 handleDifficultySelector.populateSelector = function(){
   var difficultyValue = localStorage.getItem("difficultyValue")
-  // var difficultyValue = JSON.parse(jsonString)
   var selector = document.getElementById("difficulty-options")
   for(option of selector.options){
     console.log(difficultyValue)

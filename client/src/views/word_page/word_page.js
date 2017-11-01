@@ -35,8 +35,6 @@ return scoreVisualisation
 var renderWordPage = function (currentWord, phonetic, playAudio) {
   var start = document.getElementById("start-chain")
 
-setSelectDifficultyValue()
-
   var wordTitle = document.createElement("div")
   start.appendChild(wordTitle)
   wordTitle.appendChild(renderWordTitle(currentWord))

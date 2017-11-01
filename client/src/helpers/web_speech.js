@@ -5,7 +5,11 @@ var startRecognition = function() {
   if (SpeechRecognition) {
     var recognition = new SpeechRecognition();
 
-    recognition.lang = 'en-UK';
+    var languageValue = localStorage.getItem("languageValue")
+
+    recognition.lang = languageValue;
+    console.log(languageValue + "butts")
+
     recognition.interimResults = false;
     recognition.maxAlternatives = 1;
 
