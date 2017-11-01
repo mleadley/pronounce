@@ -11,6 +11,7 @@
   font-size: 30px;
   padding: 8px;
   color: #092b4c;
+  border-radius: 5px 0 0 5px;
 }
 
 #search-box::placeholder {
