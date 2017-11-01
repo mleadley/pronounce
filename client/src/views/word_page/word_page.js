@@ -4,6 +4,7 @@ var renderTrainButton = require("./trainButton-view.js")
 var renderWordInfoButton = require("./infoButton-view.js")
 var renderSoundButton = require("./soundButton-view.js")
 var handleInfoPane = require('./info_pane.js')
+var setSelectDifficultyValue = require('../side_menu/settingButtons.js')
 
 
 var renderWordTitle = function (currentWord) {
@@ -69,6 +70,7 @@ var renderWordPage = function (currentWord, phonetic, playAudio) {
   trainButton.id = "train-button-div"
   trainButton.appendChild(renderTrainButton(currentWord))
   start.appendChild(trainButton)
+
 }
 
 var makeDictionaryRequest = function (currentWord) {

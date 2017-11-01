@@ -10,14 +10,15 @@ var renderTrainButton = function (currentWord) {
     currentWord = currentWord.toLowerCase();
 
     var wordMatch = currentWord === recognisedWord
-
     conf = event.results[0][0].confidence * 100;
 
-    // diagnostic.innerHTML = 'Result received: ' + recognisedWord + "<br>" +
-    //                        "Confidence: " + conf + "<br>";
+    var difficultyValue = localStorage.getItem("difficultyValue")
+    console.log(difficultyValue)
+
+    
+
 
     if (wordMatch) {
-      // diagnostic.innerHTML += "WORD MATCH!!!"
       function move() {
         var width = 0;
         var id = setInterval(frame, 10);
