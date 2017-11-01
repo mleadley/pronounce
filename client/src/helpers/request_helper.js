@@ -27,9 +27,12 @@ requestHelper.post = function (url, payload, onRequestComplete) {
   xhr.send(JSON.stringify(payload))
 }
 
-requestHelper.getAudio = function (url, onRequestComplete) {
+requestHelper.getAudio = function (audioFileURL, onRequestComplete) {
+  var encodedAudioFileURL = encodeURIComponent(audioFileURL)
+  var requestURL = "http://localhost:3000/api/audio/" + encodedAudioFileURL
+
   var xhr = new XMLHttpRequest()
-  xhr.open("GET", url)
+  xhr.open("GET", requestURL)
   xhr.responseType = "arraybuffer"
   xhr.addEventListener("load", function () {
     if (xhr.status !== 200) {

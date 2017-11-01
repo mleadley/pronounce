@@ -79,13 +79,13 @@ var makeDictionaryRequest = function (currentWord) {
     var audioFileURL
     var phonetic
 
-    for(pronunciation of oedData.results[0].lexicalEntries[0].pronunciations) {
+    for (var pronunciation of oedData.results[0].lexicalEntries[0].pronunciations) {
       if (audioFileURL) break
       audioFileURL = pronunciation.audioFile
       phonetic = pronunciation.phoneticSpelling
     }
 
-    playAudio = getAudioPlayer(audioFileURL)
+    var playAudio = getAudioPlayer(audioFileURL)
 
     renderWordPage(currentWord, phonetic, playAudio)
   })
