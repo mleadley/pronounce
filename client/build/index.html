@@ -13,20 +13,28 @@
     <script src="bundle.js" charset="utf-8"></script>
   </head>
   <body>
+    <button class="hamburger hamburger--3dxy" type="button">
+      <span class="hamburger-box">
+        <span class="hamburger-inner"></span>
+      </span>
+    </button>
+
     <nav id="side-menu">
-      <button class="hamburger hamburger--3dxy" type="button">
-        <span class="hamburger-box">
-          <span class="hamburger-inner"></span>
-        </span>
-      </button>
-      <!-- <br><br><br><br><br><br>
-      <details>
+      <details id="completed">
         <summary>Completed</summary>
         <ul>
-          <li>test</li>
-          <li>magic</li>
         </ul>
-      </details> -->
+      </details>
+      <details id="needs-work">
+        <summary>Needs work</summary>
+        <ul>
+        </ul>
+      </details>
+      <details id="failed">
+        <summary>Failed</summary>
+        <ul>
+        </ul>
+      </details>
     </nav>
 
     <div id="start-chain"></div>

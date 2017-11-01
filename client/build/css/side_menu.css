@@ -5,7 +5,12 @@
 
   height: 100%;
   width: 0;
-  /*font-family: "Lucida Grande";*/
+  padding: 60px 0 0 0;
+  visibility: hidden;
+
+  font-size: 36px;
+  font-family: "Lucida Grande";
+  color: #1E90FF;
 
   transition-property: background-color, box-shadow;
   transition-duration: 0.15s;
@@ -13,28 +18,25 @@
 }
 
 #side-menu.open {
+  visibility: visible;
   width: 350px;
   background-color: #e8f3ff;
   box-shadow: 0 0 10px black;
 }
 
 #side-menu ul {
-  font-size: 36px;
-  color: dodgerblue;
-
   margin: 0;
-  padding: 60px 0 0 0;
+  padding: 0;
   list-style: none;
-  text-align: right;
+  /*text-align: right;*/
   /*white-space:nowrap;*/
 }
 
 #side-menu li {
   font-size: 24px;
+  padding:
   text-align: left;
   display: block;
-  padding-top: 20px;
-  padding-left: 7px;
   font-weight: 100;
 }
 

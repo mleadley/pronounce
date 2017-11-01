@@ -3,34 +3,27 @@ var requestHelper = require("../../helpers/request_helper")
 
 var renderSideMenu = function (wordsArray) {
   var nav = document.querySelector("nav#side-menu")
-
-  var yourWords = document.createElement("ul")
-  yourWords.classList.add("hidden")
+  var completedList = nav.querySelector("#completed ul")
 
   requestHelper.get("http://localhost:3000/api/words", function (words) {
     words.forEach(function (words) {
       var savedWord = document.createElement("li")
       savedWord.innerText = words.word
-      yourWords.appendChild(savedWord)
+      completedList.appendChild(savedWord)
     })
   })
-
-  nav.appendChild(yourWords)
 
   var hamburgerButton = document.querySelector(".hamburger")
 
   hamburgerButton.addEventListener("click", function () {
-    if(yourWords.classList.contains("hidden")){
-      nav.classList.add("open")
-      hamburgerButton.classList.add("is-active")
-      yourWords.classList.remove("hidden")
-    } else {
+    if(nav.classList.contains("open")) {
       nav.classList.remove("open")
       hamburgerButton.classList.remove("is-active")
-      yourWords.classList.add("hidden")
+    } else {
+      nav.classList.add("open")
+      hamburgerButton.classList.add("is-active")
     }
   })
 }
-
 
 module.exports = renderSideMenu
