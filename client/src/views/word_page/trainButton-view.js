@@ -15,6 +15,17 @@ var renderTrainButton = function (currentWord) {
     var difficultyValue = localStorage.getItem("difficultyValue")
     console.log(difficultyValue)
 
+    switch(difficultyValue) {
+      case "1":
+        diffLevel = 0;
+        break;
+      case "2":
+        diffLevel = 75;
+        break;
+      case "3":
+        diffLevel = 90;
+    }
+
     var move = function() {
       var width = 0;
       var id = setInterval(frame, 10);
@@ -29,7 +40,7 @@ var renderTrainButton = function (currentWord) {
       }
     }
 
-    if ((conf > 90) && (wordMatch)) {
+    if ((conf > diffLevel) && (wordMatch)) {
       diagnostic.style["background-color"] = "green"
       move();
     } else {
