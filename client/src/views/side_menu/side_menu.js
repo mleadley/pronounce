@@ -5,9 +5,18 @@ var renderSideMenu = function (wordsArray) {
   var completedList = nav.querySelector("#completed ul")
 
   requestHelper.get("http://localhost:3000/api/words", function (words) {
-    words.forEach(function (words) {
+    words.forEach(function (word) {
       var savedWord = document.createElement("li")
-      savedWord.innerText = words.word
+      var savedWordLink = document.createElement("a")
+
+      savedWordLink.innerText = word.word
+      savedWordLink.href = ""
+      savedWordLink.addEventListener("click", function (event) {
+        event.preventDefault()
+        console.log(this.innerText)
+      })
+
+      savedWord.appendChild(savedWordLink)
       completedList.appendChild(savedWord)
     })
   })
