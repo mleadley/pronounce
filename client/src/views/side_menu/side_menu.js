@@ -1,15 +1,18 @@
 var requestHelper = require("../../helpers/request_helper")
-var renderLandingPage = require("../landing_page/landing_page.js")
-var renderWordPage = require("../word_page/word_page.js")
 var clearStartChain = require("../../helpers/clear_start_chain.js")
 
-var renderSideMenu = function () {
+var renderSideMenu = function (renderWordPage, renderLandingPage) {
   var nav = document.querySelector("nav#side-menu")
   var completedList = nav.querySelector("#completed ul")
+  var failedList = nav.querySelector("#failed ul")
   var newSearchButton = document.querySelector("#new-search")
   var hamburgerButton = document.querySelector(".hamburger")
 
+
+  console.log(renderWordPage);
+
   var toggleMenu = function () {
+    console.log("toggling menu");
     if( nav.classList.contains("open") ) {
       nav.classList.remove("open")
       hamburgerButton.classList.remove("is-active")
@@ -24,7 +27,9 @@ var renderSideMenu = function () {
     var chosenWord = event.target.innerText
     toggleMenu()
     clearStartChain()
-    renderWordPage(chosenWord)
+    console.log(this)
+    console.log(renderWordPage);
+    renderWordPage(chosenWord, renderLandingPage)
   }
 
   var onNewSearchClick = function (event) {
@@ -41,16 +46,20 @@ var renderSideMenu = function () {
 
       savedWordLink.innerText = word.word
       savedWordLink.href = ""
-      savedWordLink.addEventListener("click", onWordClick)
-
-      savedWord.appendChild(savedWordLink)
-      completedList.appendChild(savedWord)
+      savedWordLink.onclick = onWordClick
+      if (word.completed === true) {
+        savedWord.appendChild(savedWordLink)
+        completedList.appendChild(savedWord)
+      } else {
+        savedWord.appendChild(savedWordLink)
+        failedList.appendChild(savedWord)
+      }
     })
   })
 
-  newSearchButton.addEventListener("click", onNewSearchClick)
+  newSearchButton.onclick = onNewSearchClick
 
-  hamburgerButton.addEventListener("click", toggleMenu)
+  hamburgerButton.onclick = toggleMenu
 }
 
 module.exports = renderSideMenu
