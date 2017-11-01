@@ -118,11 +118,3 @@ background-color:#1e62d0;
   padding: 8px;
   color: white;
 }
-
-.hidden {
-  visibility: hidden;
-}
-
-.visible {
-  visibility: visible;
-}

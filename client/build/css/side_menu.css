@@ -1,26 +1,10 @@
-.side-menu {
-  color: black;
-  font-family: "Lucida Grande";
-}
-
-.side-menu-li {
-  font-size: 24px;
-  text-align: left;
-  display: block;
-  padding-top: 20px;
-  padding-left: 7px;
-  font-weight: 100;
-}
-
-.side-menu-li:hover {
-  background-color: #d2e8ff;
-  color: black;
-}
-
 #side-menu {
   position: fixed;
   top: 0;
   left: 0;
+
+  color: black;
+  font-family: "Lucida Grande";
 }
 
 #side-menu ul {
@@ -31,4 +15,18 @@
   text-align: right;
   background-color: #F9F9F9;
   /*white-space:nowrap;*/
+}
+
+#side-menu li {
+  font-size: 24px;
+  text-align: left;
+  display: block;
+  padding-top: 20px;
+  padding-left: 7px;
+  font-weight: 100;
+}
+
+#side-menu li:hover {
+  background-color: #d2e8ff;
+  color: black;
 }
