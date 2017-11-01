@@ -109,7 +109,6 @@ background-color:#1e62d0;
 }
 
 
-
 #train-button-div {
   text-align: center;
 }
@@ -119,10 +118,8 @@ background-color:#1e62d0;
   color: white;
 }
 
-
-
 #score-visualisation {
-  width: 10%;
+  width: 0%;
   height: 30px;
   background-color: #4CAF50;
   text-align: center;
