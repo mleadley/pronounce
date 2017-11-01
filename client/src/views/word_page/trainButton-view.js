@@ -13,25 +13,28 @@ var renderTrainButton = function (currentWord) {
 
     conf = event.results[0][0].confidence * 100;
 
-    // diagnostic.innerHTML = 'Result received: ' + recognisedWord + "<br>" +
-    //                        "Confidence: " + conf + "<br>";
-
-    if (wordMatch) {
-      // diagnostic.innerHTML += "WORD MATCH!!!"
-      function move() {
-        var width = 0;
-        var id = setInterval(frame, 10);
-        function frame() {
-          if (width >= conf) {
-            clearInterval(id);
-          } else {
-            width++;
-            diagnostic.style.width = width + '%';
-            diagnostic.innerHTML = "CORRECT " + width * 1  + '%';
-          }
+    var move = function() {
+      var width = 0;
+      var id = setInterval(frame, 10);
+      function frame() {
+        if (width >= conf) {
+          clearInterval(id);
+        } else {
+          width++;
+          diagnostic.style.width = width + '%';
+          diagnostic.innerHTML = "CORRECT " + width * 1  + '%';
         }
       }
-    } move()
+    }
+
+    if ((conf > 90) && (wordMatch)) {
+      diagnostic.style["background-color"] = "green"
+      move();
+    } else {
+      diagnostic.style.width = 100 + '%'
+      diagnostic.style["background-color"] = "red"
+      diagnostic.textContent = "TRY AGAIN"
+    }
 
     console.log('Result received: ' + recognisedWord)
     console.log('Confidence: ' + event.results[0][0].confidence);
@@ -44,6 +47,8 @@ var renderTrainButton = function (currentWord) {
   trainButton.addEventListener("click", function() {
     recognition.start()
     console.log('Ready to receive a word command.')
+    diagnostic.innerHTML = ''
+    diagnostic.style["background-color"] = "white"
   })
   return trainButton
 }
