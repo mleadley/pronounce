@@ -1,5 +1,7 @@
 var startRecognition = require("../../helpers/web_speech.js")
 var requestHelper = require("../../helpers/request_helper.js")
+var clearSideMenu = require("../../helpers/clear_side_menu.js")
+var renderSideMenu = require("../side_menu/side_menu.js")
 
 var renderTrainButton = function (currentWord) {
   var recognition = startRecognition()
@@ -45,16 +47,17 @@ var renderTrainButton = function (currentWord) {
       diagnostic.style["background-color"] = "green"
 
       var wordToSave = {word : currentWord, completed: true}
-      requestHelper.post("http://localhost:3000/api/words/" + currentWord, wordToSave, function(data){
-        console.log("heres some data" + data)
+      requestHelper.post("http://localhost:3000/api/words/" + wordToSave.word, wordToSave, function(data){
+        clearSideMenu()
+        renderSideMenu()
         console.log(currentWord + " added to completed words")
       })
-
-
       move();
-    } else {
-
-      requestHelper.post("http://localhost:3000/api/words/" + currentWord, {word: currentWord, completed: false}, function(data){
+      } else {
+      var wordToSave = {word : currentWord, completed: false}
+      requestHelper.post("http://localhost:3000/api/words/" + currentWord, wordToSave, function(data){
+        clearSideMenu()
+        renderSideMenu()
         console.log(currentWord + "added to failed words")
       })
       diagnostic.style.width = 100 + '%'
@@ -78,5 +81,6 @@ var renderTrainButton = function (currentWord) {
   })
   return trainButton
 }
+
 
 module.exports = renderTrainButton

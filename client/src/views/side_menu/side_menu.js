@@ -10,6 +10,7 @@ var renderSideMenu = function () {
   var hamburgerButton = document.querySelector(".hamburger")
 
   var toggleMenu = function () {
+    console.log("toggling menu");
     if( nav.classList.contains("open") ) {
       nav.classList.remove("open")
       hamburgerButton.classList.remove("is-active")
@@ -48,9 +49,9 @@ var renderSideMenu = function () {
     })
   })
 
-  newSearchButton.addEventListener("click", onNewSearchClick)
+  newSearchButton.onclick = onNewSearchClick
 
-  hamburgerButton.addEventListener("click", toggleMenu)
+  hamburgerButton.onclick = toggleMenu
 }
 
 module.exports = renderSideMenu
