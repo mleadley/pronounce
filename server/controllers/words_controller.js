@@ -14,7 +14,7 @@ router.get("/", indexRoute)
 // SHOW
 var showRoute = function (req, res) {
   var query = { word: req.params.word }
-  wordsQuery.find(query, function () {
+  wordsQuery.find(query, function (data) {
     res.json(data)
   })
 }
@@ -22,20 +22,20 @@ var showRoute = function (req, res) {
 router.get("/:word", showRoute)
 
 // CREATE
-var newRoute = function (req, res) {
-  var wordData = req.body
-  wordsQuery.save(wordData, wordData, function () {
-    res.json(data)
-  })
-}
-
-router.post("/", newRoute)
+// var newRoute = function (req, res) {
+//   var wordData = req.body
+//   wordsQuery.save(wordData, wordData, function () {
+//     res.json(data)
+//   })
+// }
+//
+// router.post("/", newRoute)
 
 // UPDATE
 var updateRoute = function (req, res) {
   var query = { word: req.params.word }
   var wordData = req.body
-  wordsQuery.save(query, wordData, function () {
+  wordsQuery.save(query, wordData, function (data) {
     res.json(data)
   })
 }
@@ -46,7 +46,7 @@ router.put("/:word", updateRoute)
 // DELETE
 var deleteRoute = function (req, res) {
   var query = { word: req.params.word }
-  wordsQuery.delete(query, function () {
+  wordsQuery.delete(query, function (data) {
     res.json(data)
   })
 }

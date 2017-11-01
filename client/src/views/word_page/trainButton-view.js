@@ -1,6 +1,9 @@
 var startRecognition = require("../../helpers/web_speech.js")
+var requestHelper = require("../../helpers/request_helper.js")
+var clearSideMenu = require("../../helpers/clear_side_menu.js")
+var renderSideMenu = require("../side_menu/side_menu.js")
 
-var renderTrainButton = function (currentWord) {
+var renderTrainButton = function (currentWord, renderWordPage) {
   var recognition = startRecognition()
   var diagnostic = document.querySelector('#score-visualisation');
 
@@ -42,8 +45,21 @@ var renderTrainButton = function (currentWord) {
 
     if ((conf > diffLevel) && (wordMatch)) {
       diagnostic.style["background-color"] = "green"
+
+      var wordToSave = {word : currentWord, completed: true}
+      requestHelper.post("http://localhost:3000/api/words/" + wordToSave.word, wordToSave, function(data){
+        clearSideMenu()
+        renderSideMenu(renderWordPage)
+        console.log(currentWord + " added to completed words")
+      })
       move();
-    } else {
+      } else {
+      var wordToSave = {word : currentWord, completed: false}
+      requestHelper.post("http://localhost:3000/api/words/" + currentWord, wordToSave, function(data){
+        clearSideMenu()
+        renderSideMenu(renderWordPage)
+        console.log(currentWord + "added to failed words")
+      })
       diagnostic.style.width = 100 + '%'
       diagnostic.style["background-color"] = "red"
       diagnostic.textContent = "TRY AGAIN"
@@ -65,5 +81,6 @@ var renderTrainButton = function (currentWord) {
   })
   return trainButton
 }
+
 
 module.exports = renderTrainButton

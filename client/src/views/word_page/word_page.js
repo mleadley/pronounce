@@ -60,7 +60,7 @@ var renderWordPage = function (currentWord, phonetic, playAudio) {
     var scoreVisualisation = renderScoreVisualisation()
     trainingDiv.appendChild(scoreVisualisation)
 
-    var trainButton = renderTrainButton(currentWord)
+    var trainButton = renderTrainButton(currentWord, makeDictionaryRequest)
     trainingDiv.appendChild(trainButton)
 
     start.appendChild(trainingDiv)
