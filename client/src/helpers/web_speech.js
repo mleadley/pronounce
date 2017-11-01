@@ -7,9 +7,12 @@ var startRecognition = function() {
 
     var languageValue = localStorage.getItem("languageValue")
 
-    recognition.lang = languageValue;
-    console.log(languageValue + "butts")
-
+    if (languageValue === null){
+      recognition.lang = "en-GB"
+    } else {
+      recognition.lang = languageValue;
+      console.log(languageValue + "butts")
+    }
     recognition.interimResults = false;
     recognition.maxAlternatives = 1;
 
