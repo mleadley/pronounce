@@ -5,6 +5,7 @@ var clearStartChain = require("../../helpers/clear_start_chain.js")
 var renderSideMenu = function (renderWordPage) {
   var nav = document.querySelector("nav#side-menu")
   var completedList = nav.querySelector("#completed ul")
+  var failedList = nav.querySelector("#failed ul")
   var newSearchButton = document.querySelector("#new-search")
   var hamburgerButton = document.querySelector(".hamburger")
 
@@ -47,9 +48,13 @@ var renderSideMenu = function (renderWordPage) {
       savedWordLink.innerText = word.word
       savedWordLink.href = ""
       savedWordLink.onclick = onWordClick
-
-      savedWord.appendChild(savedWordLink)
-      completedList.appendChild(savedWord)
+      if (word.completed === true) {
+        savedWord.appendChild(savedWordLink)
+        completedList.appendChild(savedWord)
+      } else {
+        savedWord.appendChild(savedWordLink)
+        failedList.appendChild(savedWord)
+      }
     })
   })
 
