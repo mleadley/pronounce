@@ -9,9 +9,9 @@ handleDifficultySelector.handleChange = function (){
   selector.addEventListener("change", function(){
     var selectorValue = selector.value
     if (selectorValue === null) {
-      selectorValue === "2"
+      selectorValue = "2"
     }
-    console.log(selectorValue)
+    console.log(selectorValue + "null")
     localStorage.setItem("difficultyValue", selectorValue)
   })
 }
