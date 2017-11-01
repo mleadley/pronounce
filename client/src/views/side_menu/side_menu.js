@@ -1,13 +1,15 @@
 var requestHelper = require("../../helpers/request_helper")
 var renderLandingPage = require("../landing_page/landing_page.js")
-var renderWordPage = require("../word_page/word_page.js")
 var clearStartChain = require("../../helpers/clear_start_chain.js")
 
-var renderSideMenu = function () {
+var renderSideMenu = function (renderWordPage) {
   var nav = document.querySelector("nav#side-menu")
   var completedList = nav.querySelector("#completed ul")
   var newSearchButton = document.querySelector("#new-search")
   var hamburgerButton = document.querySelector(".hamburger")
+
+
+  console.log(renderWordPage);
 
   var toggleMenu = function () {
     console.log("toggling menu");
@@ -25,6 +27,8 @@ var renderSideMenu = function () {
     var chosenWord = event.target.innerText
     toggleMenu()
     clearStartChain()
+    console.log(this)
+    console.log(renderWordPage);
     renderWordPage(chosenWord)
   }
 
@@ -42,7 +46,7 @@ var renderSideMenu = function () {
 
       savedWordLink.innerText = word.word
       savedWordLink.href = ""
-      savedWordLink.addEventListener("click", onWordClick)
+      savedWordLink.onclick = onWordClick
 
       savedWord.appendChild(savedWordLink)
       completedList.appendChild(savedWord)

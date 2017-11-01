@@ -7,32 +7,35 @@ var handleInfoPane = require('./info_pane.js')
 var setSelectDifficultyValue = require('../side_menu/settingButtons.js')
 
 
-var renderWordTitle = function (currentWord) {
-var wordTitle = document.createElement("h1")
-wordTitle.id = "word-title"
-wordTitle.innerText = currentWord
-wordTitle.label = "word title"
-return wordTitle
-}
-
-
-var renderPhoneticField = function (currentWord) {
-var phoneticField = document.createElement("h3")
-phoneticField.id = "phonetic-field"
-phoneticField.innerText = currentWord
-phoneticField.label = "phonetic field"
-return phoneticField
-}
-
-var renderScoreVisualisation = function (visualisation){
-var scoreVisualisation = document.createElement("div")
-scoreVisualisation.id = "score-visualisation"
-scoreVisualisation.innerText = visualisation
-scoreVisualisation.label = "score visualisation"
-return scoreVisualisation
-}
-
 var renderWordPage = function (currentWord, phonetic, playAudio) {
+
+
+  var renderWordTitle = function (currentWord) {
+  var wordTitle = document.createElement("h1")
+  wordTitle.id = "word-title"
+  wordTitle.innerText = currentWord
+  wordTitle.label = "word title"
+  return wordTitle
+  }
+
+
+  var renderPhoneticField = function (currentWord) {
+  var phoneticField = document.createElement("h3")
+  phoneticField.id = "phonetic-field"
+  phoneticField.innerText = currentWord
+  phoneticField.label = "phonetic field"
+  return phoneticField
+  }
+
+  var renderScoreVisualisation = function (visualisation){
+  var scoreVisualisation = document.createElement("div")
+  scoreVisualisation.id = "score-visualisation"
+  scoreVisualisation.innerText = visualisation
+  scoreVisualisation.label = "score visualisation"
+  return scoreVisualisation
+  }
+
+
   var start = document.getElementById("start-chain")
 
   var wordTitle = document.createElement("div")
@@ -68,7 +71,7 @@ var renderWordPage = function (currentWord, phonetic, playAudio) {
   var trainButton = document.createElement("div")
   trainButton.classList.add("word-page")
   trainButton.id = "train-button-div"
-  trainButton.appendChild(renderTrainButton(currentWord))
+  trainButton.appendChild(renderTrainButton(currentWord, makeDictionaryRequest))
   start.appendChild(trainButton)
 
 }
