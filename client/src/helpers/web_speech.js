@@ -13,6 +13,7 @@ var startRecognition = function() {
       recognition.lang = languageValue;
       console.log(languageValue + "butts")
     }
+    console.log(recognition.lang)
     recognition.interimResults = false;
     recognition.maxAlternatives = 1;
 
