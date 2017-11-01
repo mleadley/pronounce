@@ -1,38 +1,3 @@
-html {
-  height: 100%;
-}
-
-body {
-  height: 100%;
-  margin: 0;
-  color: white;
-  background-color: #1E90FF;
-}
-
-input, button {
-  margin: 0;
-	border: 0;
-	padding: 0;
-	display: inline-block;
-	vertical-align: middle;
-	white-space: normal;
-	background: none;
-	line-height: 1;
-  font-family: "Lucida Grande";
-  font-weight: normal;
-}
-
-input:focus, button:focus {
-	outline:0;
-}
-
-#start-chain {
-  display: flex;
-  height: 100%;
-  flex-direction: column;
-  justify-content: center;
-}
-
 .landing-page {
   width: 100%;
 }
@@ -54,10 +19,10 @@ input:focus, button:focus {
 
 #search-button {
   font-size: 30px;
-  padding-top: 12px;
-  padding-left: 10px;
-  padding-right: 10px;
-  padding-bottom: 9px;
+  padding-top: 15px;
+  padding-left: 12px;
+  padding-right: 12px;
+  padding-bottom: 12px;
   cursor: pointer;
 }
 
@@ -75,6 +40,7 @@ input:focus, button:focus {
 #main-title {
   margin: 0;
   text-align: center;
+  color: white;
   font-family: 'Cormorant', serif;
   font-size: 70px;
   font-weight: 400;

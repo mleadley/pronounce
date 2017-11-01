@@ -1,8 +1,10 @@
 var requestHelper = require("../../helpers/request_helper.js")
-var playWebAudio = require("../../helpers/web_audio.js")
+var getAudioPlayer = require("../../helpers/web_audio.js")
 var renderTrainButton = require("./trainButton-view.js")
 var renderWordInfoButton = require("./infoButton-view.js")
 var renderSoundButton = require("./soundButton-view.js")
+var handleInfoPane = require('./info_pane.js')
+
 
 var renderWordTitle = function (currentWord) {
 var wordTitle = document.createElement("h1")
@@ -22,14 +24,14 @@ return phoneticField
 }
 
 var renderScoreVisualisation = function (visualisation){
-var scoreVisualisation = document.createElement("p")
+var scoreVisualisation = document.createElement("div")
 scoreVisualisation.id = "score-visualisation"
 scoreVisualisation.innerText = visualisation
 scoreVisualisation.label = "score visualisation"
 return scoreVisualisation
 }
 
-var renderWordPage = function (currentWord, phonetic) {
+var renderWordPage = function (currentWord, phonetic, playAudio) {
   var start = document.getElementById("start-chain")
 
   var wordTitle = document.createElement("div")
@@ -53,7 +55,7 @@ var renderWordPage = function (currentWord, phonetic) {
   var wordSoundButton = document.createElement("div")
   wordSoundButton.classList.add("word-page")
   wordSoundButton.id = "word-sound-button-div"
-  wordSoundButton.appendChild(renderSoundButton())
+  wordSoundButton.appendChild(renderSoundButton(playAudio))
   start.appendChild(wordSoundButton)
 
   var scoreVisualisation = document.createElement("div")
@@ -73,7 +75,7 @@ var makeDictionaryRequest = function (currentWord) {
   var url = "http://localhost:3000/api/oed/" + currentWord
   requestHelper.get(url, function (oedData) {
     console.log(oedData);
-
+    handleInfoPane.render(oedData)
     var audioFileURL
     var phonetic
 
@@ -83,9 +85,9 @@ var makeDictionaryRequest = function (currentWord) {
       phonetic = pronunciation.phoneticSpelling
     }
 
-    playWebAudio(audioFileURL)
+    playAudio = getAudioPlayer(audioFileURL)
 
-    renderWordPage(currentWord, phonetic)
+    renderWordPage(currentWord, phonetic, playAudio)
   })
 }
 

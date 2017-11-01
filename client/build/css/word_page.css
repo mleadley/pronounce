@@ -1,32 +1,16 @@
-
-/*ALL ITEMS IN THE PAGE*/
-html {
-  height: 100%;
-}
-
-body {
-  height: 100%;
-  margin: 0;
-  color: white;
-  background-color: #1E90FF;
-}
+/*DISPLAY*/
 .word-page {
-  width: 80%;
+  width: 100%;
   background-color: white;
   color: black;
   /*margin-left: 30px;*/
-}
-
-/*DISPLAY*/
-#start-chain {
-  display: flex;
-  align-items: center;
 }
 
 #word-title-div {
   margin: 10px 0 100px 0;
   text-align: center;
 }
+
 #word-title {
   margin: 15px 0 40px 0;
   font-size: 30px;
@@ -50,7 +34,7 @@ body {
 
 /*BUTTONS*/
 
-button {
+.word-page button {
   -moz-box-shadow:inset 0px 1px 0px 0px #97c4fe;
 -webkit-box-shadow:inset 0px 1px 0px 0px #97c4fe;
 box-shadow:inset 0px 1px 0px 0px #97c4fe;
@@ -77,15 +61,15 @@ text-decoration:none;
 text-shadow:0px 1px 0px #1570cd;
 }
 
-button:active {
+.word-page button:active {
 	position:relative;
 	top:1px;
 }
 
-button:focus {
+.word-page button:focus {
 	outline:0;
 }
-button:hover {
+.word-page button:hover {
 background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #1e62d0), color-stop(1, #3d94f6));
 background:-moz-linear-gradient(top, #1e62d0 5%, #3d94f6 100%);
 background:-webkit-linear-gradient(top, #1e62d0 5%, #3d94f6 100%);
@@ -125,12 +109,20 @@ background-color:#1e62d0;
 }
 
 
-
 #train-button-div {
   text-align: center;
 }
 #train-button {
   font-size: 17px;
   padding: 8px;
+  color: white;
+}
+
+#score-visualisation {
+  width: 0;
+  height: 30px;
+  background-color: #4CAF50;
+  text-align: center;
+  line-height: 30px;
   color: white;
 }

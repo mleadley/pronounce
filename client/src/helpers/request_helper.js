@@ -2,10 +2,10 @@ var requestHelper = {}
 
 requestHelper.get = function (url, onRequestComplete) {
   var xhr = new XMLHttpRequest()
-  xhr.open('GET', url)
-  xhr.addEventListener('load', function () {
+  xhr.open("GET", url)
+  xhr.addEventListener("load", function () {
     if (xhr.status !== 200) {
-      console.error('GET request status was not 200, it was:', xhr.status)
+      console.error("GET request status was not 200, it was:", xhr.status)
       return
     }
     onRequestComplete(JSON.parse(xhr.responseText))
@@ -15,25 +15,25 @@ requestHelper.get = function (url, onRequestComplete) {
 
 requestHelper.post = function (url, payload, onRequestComplete) {
   var xhr = new XMLHttpRequest()
-  xhr.open('POST', url)
-  xhr.addEventListener('load', function () {
+  xhr.open("POST", url)
+  xhr.addEventListener("load", function () {
     if (xhr.status !== 200) {
-      console.error('POST request status was not 200, it was:', xhr.status)
+      console.error("POST request status was not 200, it was:", xhr.status)
       return
     }
     onRequestComplete(JSON.parse(xhr.responseText))
   })
-  xhr.setRequestHeader('Content-Type', 'application/json')
+  xhr.setRequestHeader("Content-Type", "application/json")
   xhr.send(JSON.stringify(payload))
 }
 
 requestHelper.getAudio = function (url, onRequestComplete) {
   var xhr = new XMLHttpRequest()
-  xhr.open('GET', url)
+  xhr.open("GET", url)
   xhr.responseType = "arraybuffer"
-  xhr.addEventListener('load', function () {
+  xhr.addEventListener("load", function () {
     if (xhr.status !== 200) {
-      console.error('GET request status was not 200, it was:', xhr.status)
+      console.error("GET request status was not 200, it was:", xhr.status)
       return
     }
     onRequestComplete(xhr.response)
