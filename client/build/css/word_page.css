@@ -1,8 +1,8 @@
 /*DISPLAY*/
 .word-page {
   width: 100%;
-  background-color: white;
-  color: black;
+  /*background-color: white;*/
+  /*color: black;*/
   /*margin-left: 30px;*/
 }
 
@@ -12,25 +12,32 @@
 }
 
 #word-title {
-  margin: 15px 0 40px 0;
-  font-size: 30px;
-  padding: 8px;
-  color: #092b4c;
-}
-
-#word-phonetic-div {
-  /*margin: 70px 0 120px 0;*/
+  margin: 0;
   text-align: center;
+  color: white;
+  font-family: 'Cormorant', serif;
+  font-size: 70px;
+  font-weight: 400;
+  letter-spacing: 2px;
 }
 
 #phonetic-field {
-  font-size: 15px;
-  padding: 8px;
-  color: #092b4c;
+  font-family: "Times New Roman", "Lucida Grande", serif;
+  margin: 0;
+  font-size: 20px;
+  color: white;
+}
+
+#phonetic-field:before {
+  content: "["
+}
+
+#phonetic-field:after {
+  content: "]"
 }
 
 /*BUTTONS*/
-
+/*
 .word-page button {
   box-shadow:inset 0px 1px 0px 0px #97c4fe;
   background:linear-gradient(to bottom, #3d94f6 5%, #1e62d0 100%);
@@ -59,7 +66,7 @@
 .word-page button:hover {
   background:linear-gradient(to bottom, #1e62d0 5%, #3d94f6 100%);
   background-color:#1e62d0;
-}
+}*/
 
 #word-info-button-div{
   margin: 50px 0 0 0;
@@ -69,10 +76,10 @@
 }
 
 #word-sound-button-div {
-  /*position: static;*/
   margin: 40px 0 20px 0;
   text-align: center;
 }
+
 #sound-button {
   color: white;
   font-size: 8px;
@@ -83,18 +90,21 @@
   cursor: pointer;
 }
 
-#sound-button img{
+#sound-button img {
   width: 40px;
 }
 
-
 #train-button-div {
+  background-color: white;
+  border-radius: 5px;
+  max-width: 600px;
+  margin: 0 auto;
   text-align: center;
 }
+
 #train-button {
   font-size: 17px;
   padding: 8px;
-  color: white;
 }
 
 #score-visualisation {
@@ -103,5 +113,13 @@
   background-color: #4CAF50;
   text-align: center;
   line-height: 30px;
-  color: white;
+}
+
+#info-pane {
+  background-color: #e8f3ff;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  padding: 0 1em;
 }

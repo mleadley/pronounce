@@ -16,7 +16,4 @@ var renderWordInfoButton = function () {
   return wordInfoButton
 }
 
-
-
-
 module.exports = renderWordInfoButton

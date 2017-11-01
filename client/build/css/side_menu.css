@@ -5,11 +5,11 @@
 
   height: 100%;
   overflow: scroll;
-  /*width: 0;*/
   width: 350px;
   padding: 70px 0 0 0;
-  visibility: hidden;
+  box-sizing: border-box;
 
+  visibility: hidden;
   font-size: 24px;
   color: #1E90FF;
 
