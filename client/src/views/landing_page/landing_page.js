@@ -1,7 +1,7 @@
 var renderSearchButton = require("./button_view.js")
 var renderWordPage = require("../word_page/word_page.js")
 var clearStartChain = require("../../helpers/clear_start_chain.js")
-
+var settingButtons = require("../side_menu/settingButtons.js")
 var onSearch = function (event) {
   var chosenWord = event.target[0].value
   clearStartChain()
@@ -31,6 +31,9 @@ var renderSearchBox = function () {
 }
 
 var renderLandingPage = function () {
+  settingButtons.handleChange()
+  settingButtons.populateSelector()
+
   var start = document.getElementById("start-chain")
   var titleDiv = document.createElement("div")
   start.appendChild(titleDiv)
@@ -61,6 +64,7 @@ var renderLandingPage = function () {
   searchBoxDiv.appendChild(comboInputButtonDiv)
 
   start.appendChild(searchBoxDiv)
+
 }
 
 
