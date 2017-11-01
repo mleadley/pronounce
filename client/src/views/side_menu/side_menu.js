@@ -3,7 +3,7 @@ var renderLandingPage = require("../landing_page/landing_page.js")
 var renderWordPage = require("../word_page/word_page.js")
 var clearStartChain = require("../../helpers/clear_start_chain.js")
 
-var renderSideMenu = function (wordsArray) {
+var renderSideMenu = function () {
   var nav = document.querySelector("nav#side-menu")
   var completedList = nav.querySelector("#completed ul")
   var newSearchButton = document.querySelector("#new-search")

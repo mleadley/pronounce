@@ -4,6 +4,7 @@ var renderTrainButton = require("./trainButton-view.js")
 var renderWordInfoButton = require("./infoButton-view.js")
 var renderSoundButton = require("./soundButton-view.js")
 var handleInfoPane = require('./info_pane.js')
+var setSelectDifficultyValue = require('../side_menu/settingButtons.js')
 
 
 var renderWordTitle = function (currentWord) {
@@ -69,6 +70,7 @@ var renderWordPage = function (currentWord, phonetic, playAudio) {
   trainButton.id = "train-button-div"
   trainButton.appendChild(renderTrainButton(currentWord))
   start.appendChild(trainButton)
+
 }
 
 var makeDictionaryRequest = function (currentWord) {
@@ -79,13 +81,13 @@ var makeDictionaryRequest = function (currentWord) {
     var audioFileURL
     var phonetic
 
-    for(pronunciation of oedData.results[0].lexicalEntries[0].pronunciations) {
+    for (var pronunciation of oedData.results[0].lexicalEntries[0].pronunciations) {
       if (audioFileURL) break
       audioFileURL = pronunciation.audioFile
       phonetic = pronunciation.phoneticSpelling
     }
 
-    playAudio = getAudioPlayer(audioFileURL)
+    var playAudio = getAudioPlayer(audioFileURL)
 
     renderWordPage(currentWord, phonetic, playAudio)
   })

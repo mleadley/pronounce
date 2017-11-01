@@ -10,8 +10,10 @@ var renderTrainButton = function (currentWord) {
     currentWord = currentWord.toLowerCase();
 
     var wordMatch = currentWord === recognisedWord
-
     conf = event.results[0][0].confidence * 100;
+
+    var difficultyValue = localStorage.getItem("difficultyValue")
+    console.log(difficultyValue)
 
     var move = function() {
       var width = 0;
