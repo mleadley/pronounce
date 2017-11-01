@@ -6,78 +6,79 @@ var renderSoundButton = require("./soundButton-view.js")
 var renderInfoPane = require('./info_pane.js')
 var setSelectDifficultyValue = require('../side_menu/settingButtons.js')
 
-var renderWordTitle = function (currentWord) {
-  var wordTitle = document.createElement("h1")
-  wordTitle.id = "word-title"
-  wordTitle.innerText = currentWord
-  wordTitle.label = "word title"
-  return wordTitle
-}
-
-var renderPhoneticField = function (currentWord) {
-  var phoneticField = document.createElement("p")
-  phoneticField.id = "phonetic-field"
-  phoneticField.innerText = currentWord
-  phoneticField.label = "phonetic field"
-  return phoneticField
-}
-
-var renderScoreVisualisation = function (visualisation){
-  var scoreVisualisation = document.createElement("div")
-  scoreVisualisation.id = "score-visualisation"
-  scoreVisualisation.innerText = visualisation
-  scoreVisualisation.label = "score visualisation"
-  return scoreVisualisation
-}
-
 var renderWordPage = function (currentWord, phonetic, playAudio) {
   var start = document.getElementById("start-chain")
 
-  // wordTitleDiv
-  var wordTitleDiv = document.createElement("div")
-  wordTitleDiv.classList.add("word-page")
-  wordTitleDiv.id = "word-title-div"
+  var renderWordTitleDiv = function () {
+    var renderWordTitle = function (currentWord) {
+      var wordTitle = document.createElement("h1")
+      wordTitle.id = "word-title"
+      wordTitle.innerText = currentWord
+      wordTitle.label = "word title"
+      return wordTitle
+    }
 
-  var wordTitle = renderWordTitle(currentWord)
-  wordTitleDiv.appendChild(wordTitle)
+    var renderPhoneticField = function (currentWord) {
+      var phoneticField = document.createElement("p")
+      phoneticField.id = "phonetic-field"
+      phoneticField.innerText = currentWord
+      phoneticField.label = "phonetic field"
+      return phoneticField
+    }
 
-  var phoneticField = renderPhoneticField(phonetic)
-  wordTitleDiv.appendChild(phoneticField)
+    var wordTitleDiv = document.createElement("div")
+    wordTitleDiv.classList.add("word-page")
+    wordTitleDiv.id = "word-title-div"
 
-  var wordInfoButton = renderWordInfoButton()
-  wordTitleDiv.appendChild(wordInfoButton)
+    var wordTitle = renderWordTitle(currentWord)
+    wordTitleDiv.appendChild(wordTitle)
 
-  start.appendChild(wordTitleDiv)
+    var phoneticField = renderPhoneticField(phonetic)
+    wordTitleDiv.appendChild(phoneticField)
 
-  // soundButtonDiv
-  var soundButtonDiv = document.createElement("div")
-  soundButtonDiv.classList.add("word-page")
-  soundButtonDiv.id = "word-sound-button-div"
+    var wordInfoButton = renderWordInfoButton()
+    wordTitleDiv.appendChild(wordInfoButton)
 
-  soundButton = renderSoundButton(playAudio)
-  soundButtonDiv.appendChild(soundButton)
+    start.appendChild(wordTitleDiv)
+  }
 
-  start.appendChild(soundButtonDiv)
+  var renderTrainingDiv = function () {
+    var renderScoreVisualisation = function () {
+      var scoreVisualisation = document.createElement("div")
+      scoreVisualisation.id = "score-visualisation"
+      scoreVisualisation.label = "score visualisation"
+      return scoreVisualisation
+    }
 
-  //trainButtonDiv
-  var trainButtonDiv = document.createElement("div")
-  trainButtonDiv.classList.add("word-page")
-  trainButtonDiv.id = "train-button-div"
+    var trainingDiv = document.createElement("div")
+    trainingDiv.classList.add("word-page")
+    trainingDiv.id = "training-div"
 
-  var scoreVisualisation = renderScoreVisualisation()
-  trainButtonDiv.appendChild(scoreVisualisation)
+    var soundButton = renderSoundButton(playAudio)
+    trainingDiv.appendChild(soundButton)
 
-  var trainButton = renderTrainButton(currentWord)
-  trainButtonDiv.appendChild(trainButton)
+    var scoreVisualisation = renderScoreVisualisation()
+    trainingDiv.appendChild(scoreVisualisation)
 
-  start.appendChild(trainButtonDiv)
+    var trainButton = renderTrainButton(currentWord)
+    trainingDiv.appendChild(trainButton)
+
+    start.appendChild(trainingDiv)
+  }
+
+  renderWordTitleDiv()
+  renderTrainingDiv()
+
+  if (currentWord.toLowerCase() === "tomato") {
+    document.body.classList.add("tomato")
+  }
 }
 
 var makeDictionaryRequest = function (currentWord) {
   var url = "http://localhost:3000/api/oed/" + currentWord
   requestHelper.get(url, function (oedData) {
-    console.log(oedData);
     renderInfoPane(oedData)
+
     var audioFileURL
     var phonetic
 

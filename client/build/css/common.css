@@ -37,3 +37,7 @@ input:focus, button:focus {
 .hidden {
   visibility: hidden;
 }
+
+.tomato {
+  background-color: tomato;
+}
