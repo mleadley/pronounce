@@ -5,7 +5,8 @@ var renderSideMenu = require("../side_menu/side_menu.js")
 
 var renderTrainButton = function (currentWord, renderWordPage, renderLandingPage) {
   var recognition = startRecognition()
-  var diagnostic = document.querySelector('#score-visualisation');
+  var diagnostic = document.getElementById('score-visualisation');
+  console.log(diagnostic);
 
   recognition.onresult = function(event) {
     var last = event.results.length - 1;
