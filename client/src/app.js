@@ -4,7 +4,7 @@ var renderWordPage = require("./views/word_page/word_page.js")
 
 var app = function () {
   renderLandingPage()
-  renderSideMenu(renderWordPage)
+  renderSideMenu(renderWordPage, renderLandingPage)
 }
 
 window.addEventListener("DOMContentLoaded", app)

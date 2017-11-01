@@ -7,7 +7,7 @@ var handleInfoPane = require('./info_pane.js')
 var setSelectDifficultyValue = require('../side_menu/settingButtons.js')
 
 
-var renderWordPage = function (currentWord, phonetic, playAudio) {
+var renderWordPage = function (currentWord, phonetic, playAudio, renderLandingPage) {
 
 
   var renderWordTitle = function (currentWord) {
@@ -71,12 +71,12 @@ var renderWordPage = function (currentWord, phonetic, playAudio) {
   var trainButton = document.createElement("div")
   trainButton.classList.add("word-page")
   trainButton.id = "train-button-div"
-  trainButton.appendChild(renderTrainButton(currentWord, makeDictionaryRequest))
+  trainButton.appendChild(renderTrainButton(currentWord, makeDictionaryRequest, renderLandingPage))
   start.appendChild(trainButton)
 
 }
 
-var makeDictionaryRequest = function (currentWord) {
+var makeDictionaryRequest = function (currentWord, renderLandingPage) {
   var url = "http://localhost:3000/api/oed/" + currentWord
   requestHelper.get(url, function (oedData) {
     console.log(oedData);
@@ -92,7 +92,7 @@ var makeDictionaryRequest = function (currentWord) {
 
     var playAudio = getAudioPlayer(audioFileURL)
 
-    renderWordPage(currentWord, phonetic, playAudio)
+    renderWordPage(currentWord, phonetic, playAudio, renderLandingPage)
   })
 }
 
