@@ -1,8 +1,7 @@
 var requestHelper = require("../../helpers/request_helper")
-var renderLandingPage = require("../landing_page/landing_page.js")
 var clearStartChain = require("../../helpers/clear_start_chain.js")
 
-var renderSideMenu = function (renderWordPage) {
+var renderSideMenu = function (renderWordPage, renderLandingPage) {
   var nav = document.querySelector("nav#side-menu")
   var completedList = nav.querySelector("#completed ul")
   var failedList = nav.querySelector("#failed ul")
@@ -30,7 +29,7 @@ var renderSideMenu = function (renderWordPage) {
     clearStartChain()
     console.log(this)
     console.log(renderWordPage);
-    renderWordPage(chosenWord)
+    renderWordPage(chosenWord, renderLandingPage)
   }
 
   var onNewSearchClick = function (event) {

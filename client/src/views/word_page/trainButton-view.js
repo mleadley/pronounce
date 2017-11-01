@@ -3,7 +3,7 @@ var requestHelper = require("../../helpers/request_helper.js")
 var clearSideMenu = require("../../helpers/clear_side_menu.js")
 var renderSideMenu = require("../side_menu/side_menu.js")
 
-var renderTrainButton = function (currentWord, renderWordPage) {
+var renderTrainButton = function (currentWord, renderWordPage, renderLandingPage) {
   var recognition = startRecognition()
   var diagnostic = document.querySelector('#score-visualisation');
 
@@ -49,7 +49,7 @@ var renderTrainButton = function (currentWord, renderWordPage) {
       var wordToSave = {word : currentWord, completed: true}
       requestHelper.post("http://localhost:3000/api/words/" + wordToSave.word, wordToSave, function(data){
         clearSideMenu()
-        renderSideMenu(renderWordPage)
+        renderSideMenu(renderWordPage, renderLandingPage)
         console.log(currentWord + " added to completed words")
       })
       move();
@@ -57,7 +57,7 @@ var renderTrainButton = function (currentWord, renderWordPage) {
       var wordToSave = {word : currentWord, completed: false}
       requestHelper.post("http://localhost:3000/api/words/" + currentWord, wordToSave, function(data){
         clearSideMenu()
-        renderSideMenu(renderWordPage)
+        renderSideMenu(renderWordPage, renderLandingPage)
         console.log(currentWord + "added to failed words")
       })
       diagnostic.style.width = 100 + '%'
