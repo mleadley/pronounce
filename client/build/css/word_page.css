@@ -118,3 +118,14 @@ background-color:#1e62d0;
   padding: 8px;
   color: white;
 }
+
+
+
+#score-visualisation {
+  width: 10%;
+  height: 30px;
+  background-color: #4CAF50;
+  text-align: center;
+  line-height: 30px;
+  color: white;
+}

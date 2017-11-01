@@ -24,7 +24,7 @@ return phoneticField
 }
 
 var renderScoreVisualisation = function (visualisation){
-var scoreVisualisation = document.createElement("p")
+var scoreVisualisation = document.createElement("div")
 scoreVisualisation.id = "score-visualisation"
 scoreVisualisation.innerText = visualisation
 scoreVisualisation.label = "score visualisation"
