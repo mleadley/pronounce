@@ -17,6 +17,9 @@ handleDifficultySelector.handleChange = function (){
 }
 
 handleDifficultySelector.populateSelector = function(){
+  if (var difficultyValue = localStorage.getItem("difficultyValue") === null) {
+    localStorage.setItem("difficultyValue", "2")
+  }
   var difficultyValue = localStorage.getItem("difficultyValue")
   var selector = document.getElementById("difficulty-options")
   for(option of selector.options){
