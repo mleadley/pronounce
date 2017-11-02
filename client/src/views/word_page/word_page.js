@@ -6,7 +6,7 @@ var renderSoundButton = require("./soundButton-view.js")
 var renderInfoPane = require('./info_pane.js')
 var setSelectDifficultyValue = require('../side_menu/settingButtons.js')
 
-var renderWordPage = function (currentWord, phonetic, playAudio, renderLandingPage) {
+var renderWordPage = function (currentWord, phonetic, playAudio, renderLandingPage, infoPane) {
   var start = document.getElementById("start-chain")
 
   var renderWordTitleDiv = function () {
@@ -36,7 +36,7 @@ var renderWordPage = function (currentWord, phonetic, playAudio, renderLandingPa
     var phoneticField = renderPhoneticField(phonetic)
     wordTitleDiv.appendChild(phoneticField)
 
-    var wordInfoButton = renderWordInfoButton()
+    var wordInfoButton = renderWordInfoButton(infoPane)
     wordTitleDiv.appendChild(wordInfoButton)
 
     start.appendChild(wordTitleDiv)
@@ -53,6 +53,8 @@ var renderWordPage = function (currentWord, phonetic, playAudio, renderLandingPa
     var trainingDiv = document.createElement("div")
     trainingDiv.classList.add("word-page")
     trainingDiv.id = "training-div"
+
+    trainingDiv.appendChild(infoPane)
 
     var soundButton = renderSoundButton(playAudio)
     trainingDiv.appendChild(soundButton)
@@ -77,7 +79,7 @@ var renderWordPage = function (currentWord, phonetic, playAudio, renderLandingPa
 var makeDictionaryRequest = function (currentWord, renderLandingPage) {
   var url = "http://localhost:3000/api/oed/" + currentWord
   requestHelper.get(url, function (oedData) {
-    renderInfoPane(oedData)
+    var infoPane = renderInfoPane(oedData)
 
     var audioFileURL
     var phonetic
@@ -90,7 +92,7 @@ var makeDictionaryRequest = function (currentWord, renderLandingPage) {
 
     var playAudio = getAudioPlayer(audioFileURL)
 
-    renderWordPage(currentWord, phonetic, playAudio, renderLandingPage)
+    renderWordPage(currentWord, phonetic, playAudio, renderLandingPage, infoPane)
   })
 }
 
