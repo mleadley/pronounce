@@ -10,7 +10,7 @@ body {
   font-family: 'Open Sans', sans-serif;
 }
 
-input, button {
+input, button, select {
   margin: 0;
 	border: 0;
 	padding: 0;
@@ -23,7 +23,7 @@ input, button {
   font-weight: normal;
 }
 
-input:focus, button:focus {
+input:focus, button:focus, select:focus {
 	outline:0;
 }
 
