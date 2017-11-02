@@ -9,7 +9,6 @@ var getAudioPlayer = function (url) {
   }
 
   var decodeMP3 = function (arrayBuffer) {
-    console.log(arrayBuffer)
     audioCtx.decodeAudioData(arrayBuffer, handleAudio)
   }
 

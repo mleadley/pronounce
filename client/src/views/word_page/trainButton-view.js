@@ -6,7 +6,6 @@ var renderSideMenu = require("../side_menu/side_menu.js")
 var renderTrainButton = function (currentWord, renderWordPage, renderLandingPage) {
   var recognition = startRecognition()
   var diagnostic = document.getElementById('score-visualisation');
-  console.log(diagnostic);
 
   recognition.onresult = function(event) {
     var last = event.results.length - 1;
@@ -17,7 +16,6 @@ var renderTrainButton = function (currentWord, renderWordPage, renderLandingPage
     conf = event.results[0][0].confidence * 100;
 
     var difficultyValue = localStorage.getItem("difficultyValue")
-    console.log(difficultyValue)
 
     switch(difficultyValue) {
       case "1":
@@ -51,7 +49,6 @@ var renderTrainButton = function (currentWord, renderWordPage, renderLandingPage
       requestHelper.post("http://localhost:3000/api/words/" + wordToSave.word, wordToSave, function(data){
         clearSideMenu()
         renderSideMenu(renderWordPage, renderLandingPage)
-        console.log(currentWord + " added to completed words")
       })
       move();
       } else {
@@ -59,7 +56,6 @@ var renderTrainButton = function (currentWord, renderWordPage, renderLandingPage
       requestHelper.post("http://localhost:3000/api/words/" + currentWord, wordToSave, function(data){
         clearSideMenu()
         renderSideMenu(renderWordPage, renderLandingPage)
-        console.log(currentWord + "added to failed words")
       })
       diagnostic.style.width = 100 + '%'
       diagnostic.style["background-color"] = "red"
