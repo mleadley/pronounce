@@ -8,7 +8,7 @@
 }
 
 #word-title {
-  margin: 0;
+  margin: 0 0 12px 0;
   text-align: center;
   color: white;
   font-family: 'Cormorant', serif;
@@ -19,8 +19,8 @@
 
 #phonetic-field {
   font-family: "Times New Roman", "Lucida Grande", serif;
-  margin: 0;
-  font-size: 20px;
+  margin: 0 0 12px 0;
+  font-size: 24px;
   color: white;
 }
 
@@ -33,14 +33,24 @@
 }
 
 #word-info-button {
-  font-size: 15px;
+  border: 1px solid transparent;
+  border-radius: 5px;
+  background-color: #e8f3ff;
+  padding: 10px;
+  font-size: 20px;
+  color: dodgerblue;
+  cursor: pointer;
+}
+
+#word-info-button:hover {
+  background-color: #d2e8ff;
 }
 
 #sound-button {
   border: 1px solid transparent;
+  border-radius: 5px;
   background-color: #e8f3ff;
   padding: 10px;
-  border-radius: 5px;
   cursor: pointer;
 }
 
