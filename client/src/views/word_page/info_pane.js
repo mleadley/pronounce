@@ -1,38 +1,27 @@
-renderInfoPane = {}
-
-
-renderInfoPane.render = function(data) {
-  var start = document.getElementById("start-chain")
+renderInfoPane = function(data) {
   var infoPane = document.createElement("div")
   infoPane.id = "info-pane"
   infoPane.classList.add("hidden")
-  start.appendChild(infoPane)
-  console.log(data)
+
   var counter = 1
   data.results[0].lexicalEntries[0].entries[0].senses.forEach(function (entry){
     var def = document.createElement("p")
     var example = document.createElement("p")
 
-    def.innerText = "definition " + counter + ": " + entry.definitions
-    if(entry.examples != null){
-      example.innerText = "example " + counter + ": "+ entry.examples[0].text
-    }
+    def.innerHTML = "<strong>Definition " + counter +
+                    ":</strong> " + entry.definitions
     infoPane.appendChild(def)
-    def.appendChild(example)
-    counter += 1
 
+    if(entry.examples != null){
+      example.innerHTML = "<strong>Example " + counter +
+                          ":</strong> " + entry.examples[0].text
+      def.appendChild(example)
+    }
+
+    counter += 1
   })
 
-
+  return infoPane
 }
-
-renderInfoPane.open = function () {
-
-}
-
-renderInfoPane.close = function () {
-
-}
-
 
 module.exports = renderInfoPane

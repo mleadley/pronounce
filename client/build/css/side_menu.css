@@ -4,11 +4,13 @@
   left: -350px;
 
   height: 100%;
-  /*width: 0;*/
+  overflow: scroll;
   width: 350px;
   padding: 70px 0 0 0;
-  visibility: hidden;
+  box-sizing: border-box;
+  z-index: 100;
 
+  visibility: hidden;
   font-size: 24px;
   color: #1E90FF;
 
@@ -33,6 +35,7 @@
   outline: none;
   font-weight: bold;
   padding: 0.2em 0 0.2em 1em;
+  cursor: pointer;
 }
 
 #side-menu summary:hover {
@@ -61,4 +64,12 @@
 
 #side-menu a:hover {
   background-color: #d2e8ff;
+}
+
+#side-menu select {
+  font-size: 24px;
+  color: #1E90FF;
+  border: 1px solid #1E90FF;
+  margin: 0.2em 0 0.2em 2.1em;
+  cursor: pointer;
 }

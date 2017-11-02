@@ -1,128 +1,111 @@
-/*DISPLAY*/
 .word-page {
   width: 100%;
-  background-color: white;
-  color: black;
-  /*margin-left: 30px;*/
 }
 
 #word-title-div {
-  margin: 10px 0 100px 0;
+  margin: 10px 0 20px 0;
   text-align: center;
 }
 
 #word-title {
-  margin: 15px 0 40px 0;
-  font-size: 30px;
-  padding: 8px;
-  color: #092b4c;
-}
-
-#word-phonetic-div {
-  /*margin: 70px 0 120px 0;*/
+  margin: 0 0 12px 0;
   text-align: center;
+  color: white;
+  font-family: 'Cormorant', serif;
+  font-size: 70px;
+  font-weight: 400;
+  letter-spacing: 2px;
 }
 
 #phonetic-field {
-  font-size: 15px;
-  padding: 8px;
-  color: #092b4c;
-}
-
-
-
-
-/*BUTTONS*/
-
-.word-page button {
-  -moz-box-shadow:inset 0px 1px 0px 0px #97c4fe;
--webkit-box-shadow:inset 0px 1px 0px 0px #97c4fe;
-box-shadow:inset 0px 1px 0px 0px #97c4fe;
-background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #3d94f6), color-stop(1, #1e62d0));
-background:-moz-linear-gradient(top, #3d94f6 5%, #1e62d0 100%);
-background:-webkit-linear-gradient(top, #3d94f6 5%, #1e62d0 100%);
-background:-o-linear-gradient(top, #3d94f6 5%, #1e62d0 100%);
-background:-ms-linear-gradient(top, #3d94f6 5%, #1e62d0 100%);
-background:linear-gradient(to bottom, #3d94f6 5%, #1e62d0 100%);
-filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#3d94f6', endColorstr='#1e62d0',GradientType=0);
-background-color:#3d94f6;
--moz-border-radius:6px;
--webkit-border-radius:6px;
-border-radius:6px;
-border:1px solid #337fed;
-display:inline-block;
-cursor:pointer;
-color:#ffffff;
-font-family: arial;
-font-size:10px;
-font-weight:bold;
-padding:4px 20px;
-text-decoration:none;
-text-shadow:0px 1px 0px #1570cd;
-}
-
-.word-page button:active {
-	position:relative;
-	top:1px;
-}
-
-.word-page button:focus {
-	outline:0;
-}
-.word-page button:hover {
-background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #1e62d0), color-stop(1, #3d94f6));
-background:-moz-linear-gradient(top, #1e62d0 5%, #3d94f6 100%);
-background:-webkit-linear-gradient(top, #1e62d0 5%, #3d94f6 100%);
-background:-o-linear-gradient(top, #1e62d0 5%, #3d94f6 100%);
-background:-ms-linear-gradient(top, #1e62d0 5%, #3d94f6 100%);
-background:linear-gradient(to bottom, #1e62d0 5%, #3d94f6 100%);
-filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#1e62d0', endColorstr='#3d94f6',GradientType=0);
-background-color:#1e62d0;
-}
-
-#word-info-button-div{
-  margin: 50px 0 0 0;
-}
-#word-info-button {
-  font-size: 15px;
-}
-
-
-
-#word-sound-button-div {
-  /*position: static;*/
-  margin: 40px 0 20px 0;
-  text-align: center;
-}
-#sound-button {
+  font-family: "Times New Roman", "Lucida Grande", serif;
+  margin: 0 0 20px 0;
+  font-size: 24px;
   color: white;
-  font-size: 8px;
-  padding-top: 12px;
-  padding-left: 10px;
-  padding-right: 10px;
-  padding-bottom: 9px;
+}
+
+#phonetic-field:before {
+  content: "["
+}
+
+#phonetic-field:after {
+  content: "]"
+}
+
+#word-info-button {
+  border: 1px solid transparent;
+  border-radius: 5px;
+  background-color: #e8f3ff;
+  padding: 10px;
+  font-size: 20px;
+  color: dodgerblue;
   cursor: pointer;
 }
 
-#sound-button img{
+#word-info-button:hover {
+  background-color: #d2e8ff;
+}
+
+#sound-button {
+  border: 1px solid transparent;
+  border-radius: 5px;
+  background-color: #e8f3ff;
+  padding: 10px;
+  cursor: pointer;
+}
+
+#sound-button:hover {
+  background-color: #d2e8ff;
+}
+
+#sound-button img {
   width: 40px;
 }
 
-
-#train-button-div {
+#training-div {
+  background-color: white;
+  border-radius: 5px;
+  padding: 10px;
+  max-width: 600px;
+  margin: 0 auto;
   text-align: center;
+  position: relative;
+  box-sizing: border-box;
 }
+
+#info-pane {
+  background-color: #e8f3ff;
+  border-radius: 5px;
+  padding: 10px;
+  width: 100%;
+  max-width: 600px;
+  text-align: left;
+  margin: 0 auto;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  box-sizing: border-box;
+}
+
 #train-button {
-  font-size: 17px;
-  padding: 8px;
-  color: white;
+  border: 1px solid transparent;
+  border-radius: 5px;
+  background-color: #e8f3ff;
+  font-size: 20px;
+  color: dodgerblue;
+  padding: 10px;
+  cursor: pointer;
+}
+
+#train-button:hover {
+  background-color: #d2e8ff;
 }
 
 #score-visualisation {
   width: 0;
   height: 30px;
+  margin: 10px 0;
   background-color: #4CAF50;
   text-align: center;
   line-height: 30px;
-  color: white;
 }
