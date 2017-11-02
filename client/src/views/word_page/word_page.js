@@ -54,6 +54,8 @@ var renderWordPage = function (currentWord, phonetic, playAudio, renderLandingPa
     trainingDiv.classList.add("word-page")
     trainingDiv.id = "training-div"
 
+    start.appendChild(trainingDiv)
+
     trainingDiv.appendChild(infoPane)
 
     var soundButton = renderSoundButton(playAudio)
@@ -64,8 +66,6 @@ var renderWordPage = function (currentWord, phonetic, playAudio, renderLandingPa
 
     var trainButton = renderTrainButton(currentWord, makeDictionaryRequest, renderLandingPage)
     trainingDiv.appendChild(trainButton)
-
-    start.appendChild(trainingDiv)
   }
 
   renderWordTitleDiv()

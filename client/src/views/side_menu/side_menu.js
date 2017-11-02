@@ -8,11 +8,7 @@ var renderSideMenu = function (renderWordPage, renderLandingPage) {
   var newSearchButton = document.querySelector("#new-search")
   var hamburgerButton = document.querySelector(".hamburger")
 
-
-  console.log(renderWordPage);
-
   var toggleMenu = function () {
-    console.log("toggling menu");
     if( nav.classList.contains("open") ) {
       nav.classList.remove("open")
       hamburgerButton.classList.remove("is-active")
@@ -27,8 +23,6 @@ var renderSideMenu = function (renderWordPage, renderLandingPage) {
     var chosenWord = event.target.innerText
     toggleMenu()
     clearStartChain()
-    console.log(this)
-    console.log(renderWordPage);
     renderWordPage(chosenWord, renderLandingPage)
   }
 
