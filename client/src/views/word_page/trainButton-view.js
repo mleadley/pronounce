@@ -43,7 +43,7 @@ var renderTrainButton = function (currentWord, renderWordPage, renderLandingPage
     }
 
     if ((conf > diffLevel) && (wordMatch)) {
-      diagnostic.style["background-color"] = "green"
+      diagnostic.style["background-color"] = null
 
       var wordToSave = {word : currentWord, completed: true}
       requestHelper.post("http://localhost:3000/api/words/" + wordToSave.word, wordToSave, function(data){
