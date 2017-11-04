@@ -13,4 +13,6 @@ app.use("/api/words", wordsRouter)
 app.use("/api/oed", oedRouter)
 app.use("/api/audio", audioRouter)
 
-app.listen(3000)
+var port = process.env.PORT || 3000
+
+app.listen(port)
